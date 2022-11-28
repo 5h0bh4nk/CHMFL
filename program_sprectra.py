@@ -61,3 +61,20 @@ def get_coverage_result(statement_line_in_code, test_execution_result, mutant_ve
             b += 1
 
     return a, b, c, d
+
+
+def calculate_cmh_score(a, b, c, d):
+    Ncf = a
+    Nuf = b
+    Ncs = c
+    Nus = d
+    Nf = Ncf + Nuf
+    Ns = Ncs + Nus
+    Nu = Nuf + Nus
+    Nc = Ncf + Ncs
+    N = Nf + Ns
+    # calculate the CMH score
+    numerator = Ncf - (Nf*Nc)/N
+    denominator = (Nf*Nc*Nu*Ns)/(N*N*(N-1))
+    cmh_score = numerator/denominator
+    return cmh_score
