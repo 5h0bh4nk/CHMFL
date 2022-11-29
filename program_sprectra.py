@@ -40,6 +40,7 @@ test_execution_result = get_test_results('NTS/Problem1_mutant_output', 'NTS/Prob
 mutant_count = 24
 test_count = 100
 
+problem_name = 'Problem1'
 print_result_passed(test_execution_result, mutant_count, test_count)
 
 # get values of a, b, c, d
@@ -47,14 +48,14 @@ def get_coverage_result(statement_line_in_code, test_execution_result, mutant_ve
     a, b, c, d = 0, 0, 0, 0
     # get coverage for passed test cases
     for i in range(len(test_execution_result[mutant_version - 1][1])):
-        gcov_file = 'NTS/Problem1_mutants/v' + str(mutant_version) + '/input.' + str(test_execution_result[mutant_version - 1][1][i]) + '.gcov'
+        gcov_file = 'NTS/Problem1_gcov/v' + str(mutant_version) + '/' + str(test_execution_result[mutant_version - 1][1][i]) + '/' + problem_name + '.c.gcov'
         if gcov_reader.check_if_statement_covered(statement_line_in_code, gcov_file):
             c += 1
         else:
             d += 1
     # get coverage for failed test cases
     for i in range(len(test_execution_result[mutant_version - 1][0])):
-        gcov_file = 'NTS/Problem1_mutants/v' + str(mutant_version) + '/input.' + str(test_execution_result[mutant_version - 1][0][i]) + '.gcov'
+        gcov_file = 'NTS/Problem1_gcov/v' + str(mutant_version) + '/' + str(test_execution_result[mutant_version - 1][1][i]) + '/' + problem_name + '.c.gcov'
         if gcov_reader.check_if_statement_covered(statement_line_in_code, gcov_file):
             a += 1
         else:
