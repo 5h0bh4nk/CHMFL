@@ -35,3 +35,10 @@ else :
     os.system("./cprog1 >> output.txt")
     
 # print(code)
+
+from gcov_generator import *
+import gcov_reader
+import output_comp
+import statement_ranking_generator
+
+generate_gcov_for_all_inputs()
