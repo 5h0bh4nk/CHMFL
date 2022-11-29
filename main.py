@@ -60,7 +60,9 @@ sorted_dict = {keys[i]: sorted(
 sorted_cmh_score = sorted(cmh_score.items(), key=lambda x: x[1], reverse=True)
 # write cmh score to file
 
-print(sorted_cmh_score)
 with open('cmh_score.txt', 'w') as file:
+    file.write("LineNo\t\tCMHVAlue\t\tLine of code\n")
     for key, value in sorted_cmh_score:
+        
+        file.write("--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------\n")
         file.write(str(key) + '     ' + str(value) + '     ' + code[key])
