@@ -25,7 +25,7 @@ def get_test_results(mutant_folder, testsuite_folder):
             else:
                 test_result[0].append(j + 1)
         test_results.append(test_result)
-        print('Mutant ' + str(i + 1) + ' evaluated !')
+        # print('Mutant ' + str(i + 1) + ' evaluated !')
     return test_results
 
 def print_result_passed(final_result, mutant_count, test_count):
@@ -41,7 +41,7 @@ mutant_count = 24
 test_count = 100
 
 problem_name = 'Problem1'
-print_result_passed(test_execution_result, mutant_count, test_count)
+# print_result_passed(test_execution_result, mutant_count, test_count)
 
 # get values of a, b, c, d
 def get_coverage_result(statement_line_in_code, test_execution_result, mutant_version):
@@ -60,6 +60,9 @@ def get_coverage_result(statement_line_in_code, test_execution_result, mutant_ve
             a += 1
         else:
             b += 1
+    
+    if a+c==0 or b+d==0 or a+b==0 or c+d==0:
+        return -1, -1, -1, -1
 
     return a, b, c, d
 
@@ -73,9 +76,9 @@ def calculate_cmh_score(a, b, c, d):
     Ns = Ncs + Nus
     Nu = Nuf + Nus
     Nc = Ncf + Ncs
-    N = Nf + Ns
+    N = float(Nf + Ns)
     # calculate the CMH score
-    numerator = Ncf - (Nf*Nc)/N
-    denominator = (Nf*Nc*Nu*Ns)/(N*N*(N-1))
+    numerator = Ncf - (Nf*Nc)/float(N)
+    denominator = (Nf*Nc*Nu*Ns)/float(N*N*(N-1))
     cmh_score = numerator/denominator
     return cmh_score
