@@ -9,11 +9,12 @@ def check_if_statement_covered(statement_line_in_code, gcov_file):
     # remove spaces and split the line
     gcov_file_lines[statement_line_in_gcov] = gcov_file_lines[statement_line_in_gcov].replace(' ', '')
     gcov_file_line = gcov_file_lines[statement_line_in_gcov].split(':')
-    if gcov_file_line[0] == '-':
+    print(gcov_file_line)
+    if gcov_file_line[0] == '-' or gcov_file_line[0] == '#####':
         return False    
     else:
         return True
 
 
 # test
-print(check_if_statement_covered(399, 'NTS/Problem1_mutants/v1/Problem1.c.gcov'))
+print(check_if_statement_covered(120, 'NTS/Problem1_gcov/v1/1/Problem1.c.gcov'))
