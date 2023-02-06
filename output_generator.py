@@ -28,4 +28,9 @@ for i in range(len(mutant_folders)):
   # compile teh program
   os.system('gcc -w '+ root_folder + problem_folder + problem_name+'_mutants/v'+str(i+1)+'/'+problem_name+'.c') # -o '+ root_folder + problem_folder + problem_name+'_mutants/v'+str(i+1)+'/a.out')
   for j in range(0, len(test_suite_files)):
-    os.system('xargs -a '+ root_folder + problem_folder + problem_name+'_test_suite/input.'+str(j+1)+' ./a.out > '+ root_folder + problem_folder + problem_name+'_mutant_output/v'+str(i+1)+'/output.'+str(j+1))
+    #check if already done
+
+    if not os.path.exists('./'+root_folder + problem_folder + problem_name+'_mutant_output/v'+str(i+1)+'/output.'+str(j+1)):
+      os.system('xargs -a '+ root_folder + problem_folder + problem_name+'_test_suite/input.'+str(j+1)+' ./a.out > '+ root_folder + problem_folder + problem_name+'_mutant_output/v'+str(i+1)+'/output.'+str(j+1))
+    else:
+      print('Already exists !')
