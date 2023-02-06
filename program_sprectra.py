@@ -1,23 +1,30 @@
 import os
 import gcov_reader
 
+root_folder = 'NTS_Repo/'
+problem_folder = 'Problem1/'
+problem_name = 'Problem1'
+
 # get number of failed and passed test cases for each mutant
-def get_test_results(mutant_folder, testsuite_folder):
+def get_test_results(mutant_output_folder, oracle_output_folder):
     # get number of test cases
-    test_cases = os.listdir(testsuite_folder)
+    test_cases = os.listdir(oracle_output_folder)
     # get number of mutants
-    mutants = os.listdir(mutant_folder)
+    mutants = os.listdir(mutant_output_folder)
     # create a list to store the number of failed and passed test cases for each mutant
     test_results = []
-    for i in range(len(mutants)):
+
+
+    ########################### change to len(mutanats)
+    for i in range(1):
         # create a list to store the number of failed and passed test cases for each mutant
         test_result = [[],[]]
         for j in range(len(test_cases)):
             # get the output of the test case
-            with open(mutant_folder + '/v' + str(i + 1) + '/output.' + str(j + 1), 'r') as f:
+            with open(mutant_output_folder + '/v' + str(i + 1) + '/output.' + str(j + 1), 'r') as f:
                 output = f.read()
             # get the expected output of the test case
-            with open(testsuite_folder + '/output.' + str(j + 1), 'r') as f:
+            with open(oracle_output_folder + '/output.' + str(j + 1), 'r') as f:
                 expected_output = f.read()
             # compare the output of the test case with the expected output
             if output == expected_output:
@@ -35,8 +42,11 @@ def print_result_passed(final_result, mutant_count, test_count):
         print('Failed test cases: ' + str(final_result[i][0]))
         print('__________________________________________________________________________________________________')
 
+root_folder = 'NTS_Repo/'
+problem_folder = 'Problem1/'
+problem_name = 'Problem1'
 
-test_execution_result = get_test_results('NTS/Problem1_mutant_output', 'NTS/Problem1_oracle_output')
+test_execution_result = get_test_results(root_folder + problem_folder + problem_name + '_mutant_output', root_folder + problem_folder + problem_name + '_oracle_output')
 mutant_count = 24
 test_count = 100
 
@@ -48,14 +58,14 @@ def get_coverage_result(statement_line_in_code, test_execution_result, mutant_ve
     a, b, c, d = 0, 0, 0, 0
     # get coverage for passed test cases
     for i in range(len(test_execution_result[mutant_version - 1][1])):
-        gcov_file = 'NTS/Problem1_gcov/v' + str(mutant_version) + '/' + str(test_execution_result[mutant_version - 1][1][i]) + '/' + problem_name + '.c.gcov'
+        gcov_file = 'NTS_Repo/Problem1/Problem1_gcov/v' + str(mutant_version) + '/' + str(test_execution_result[mutant_version - 1][1][i]) + '/' + problem_name + '.c.gcov'
         if gcov_reader.check_if_statement_covered(statement_line_in_code, gcov_file):
             c += 1
         else:
             d += 1
     # get coverage for failed test cases
     for i in range(len(test_execution_result[mutant_version - 1][0])):
-        gcov_file = 'NTS/Problem1_gcov/v' + str(mutant_version) + '/' + str(test_execution_result[mutant_version - 1][1][i]) + '/' + problem_name + '.c.gcov'
+        gcov_file = 'NTS_Repo/Problem1/Problem1_gcov/v' + str(mutant_version) + '/' + str(test_execution_result[mutant_version - 1][1][i]) + '/' + problem_name + '.c.gcov'
         if gcov_reader.check_if_statement_covered(statement_line_in_code, gcov_file):
             a += 1
         else:

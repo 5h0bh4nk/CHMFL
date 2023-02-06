@@ -7,12 +7,6 @@ import numpy as np
 
 # read c program
 
-# def Ccompile(inputfile):
-#     compiler = new_compiler()
-#     compiler.compile([inputfile])
-#     compiler.link_executable(['C_Programs/cprog1.o'], 'cprog1')
-#     # subproce''ss.Popen('roCpgor'm)
-
 def readCprogramFile(cProgram):
     lineContent={}
     with open(cProgram) as file:
@@ -37,8 +31,12 @@ def readCprogramFile(cProgram):
     
 # # print(code)
 
+root_folder = 'NTS_Repo/'
+problem_folder = 'Problem1/'
+problem_name = 'Problem1'
+mutant_code = root_folder + problem_folder + problem_name + '_mutants/v1/' + problem_name + '.c'
 
-code = readCprogramFile('NTS/Problem1_source/Problem1.c')
+code = readCprogramFile(mutant_code)
 
 # get cmh score for each statement in code
 
@@ -64,6 +62,6 @@ with open('cmh_score.txt', 'w') as file:
     file.write("LineNo\t\tCMHVAlue\t\tLine of code\n")
     for key, value in sorted_cmh_score:
         code[key]=code[key].lstrip()
-        if  code[key].startswith(("if","else","elseif")):
-            file.write("--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------\n")
-            file.write(str(key) + '     ' + str(value) + '     ' + code[key])
+        # if  code[key].startswith(("if","else","elseif")):
+        file.write("--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------\n")
+        file.write(str(key) + '     ' + str(value) + '     ' + code[key])
