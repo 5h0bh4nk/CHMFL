@@ -12,8 +12,6 @@ def generate_gcov_for_all_inputs():
     testsuite_folder = 'NTS/'+problem_name+'_test_suite'
     testsuite_folders = glob.glob(testsuite_folder+'/*')
 
-    
-    
     for i in range(len(mutant_folders)):
 
         os.system('mkdir NTS/'+problem_name+'_gcov/v'+str(i+1))
