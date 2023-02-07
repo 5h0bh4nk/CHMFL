@@ -14,7 +14,3 @@ def check_if_statement_covered(statement_line_in_code, gcov_file):
         return False    
     else:
         return True
-
-
-# test
-print(check_if_statement_covered(120, 'NTS/Problem1_gcov/v1/1/Problem1.c.gcov'))

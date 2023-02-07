@@ -14,26 +14,9 @@ def readCprogramFile(cProgram):
             lineContent[i+1]=line
     return lineContent
 
-# cProgram = sys.argv[1]
-# Ccompile(cProgram)
-# pid = os.fork()
-
-# if pid > 0 :
-#     #parent proces
-#     pro= os.wait()
-#     print("Child process of %d is ejxecuted" % (pro[0]))
-
-# else :
-#     #child process
-#     # command = ["./cprog1",">>","output.txt"]
-#     # os.execvp(command[0], command)
-#     os.system("./cprog1 >> output.txt")
-    
-# # print(code)
-
 root_folder = 'NTS_Repo/'
-problem_folder = 'Problem1/'
-problem_name = 'Problem1'
+problem_folder = 'quicksort/'
+problem_name = 'quicksort'
 mutant_code = root_folder + problem_folder + problem_name + '_mutants/v1/' + problem_name + '.c'
 
 code = readCprogramFile(mutant_code)
@@ -42,7 +25,7 @@ code = readCprogramFile(mutant_code)
 
 cmh_score = {}
 for key, value in code.items():
-    a, b, c, d = program_sprectra.get_coverage_result(key, program_sprectra.test_execution_result, 1)
+    a, b, c, d = program_sprectra.get_coverage_result(key, 1)
     if a == -1 or b == -1 or c == -1 or d == -1:
         continue
     print('For statement ' + str(key) + ' : '+ value)

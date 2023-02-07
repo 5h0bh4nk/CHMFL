@@ -5,7 +5,7 @@ import glob
 import subprocess
 
 def generate_gcov_for_all_inputs():
-    problem_name = 'Problem1'
+    problem_name = 'quicksort'
     root_folder = 'NTS_Repo/'
     problem_folder = problem_name+'/'
     mutant_folder = root_folder + problem_folder + problem_name + '_mutants'
@@ -16,11 +16,11 @@ def generate_gcov_for_all_inputs():
 
     for i in range(len(mutant_folders)):
 
-        os.system('mkdir NTS/'+problem_name+'_gcov/v'+str(i+1))
+        os.system('mkdir '+ root_folder + problem_folder + problem_name + '_gcov/v' + str(i+1))
         # executing the program
         for j in range(len(testsuite_folders)):
 
-            os.system('gcc -c -Wall -pg -fprofile-arcs -ftest-coverage ' + root_folder + problem_folder + problem_name +'_mutants/v'+str(i+1)+'/'+problem_name+'.c')# -o NTS/'+problem_name+'_mutants/v'+str(i+1)+'/a.out')
+            os.system('gcc -w -c -Wall -pg -fprofile-arcs -ftest-coverage ' + root_folder + problem_folder + problem_name +'_mutants/v'+str(i+1)+'/'+problem_name+'.c')# -o NTS/'+problem_name+'_mutants/v'+str(i+1)+'/a.out')
             os.system('gcc -Wall -pg -fprofile-arcs -ftest-coverage ' + problem_name+'.o')
 
             # os.system('./NTS/'+problem_name+'_mutants/v'+str(i+1)+'/a.out 1 2 3 4 5')
