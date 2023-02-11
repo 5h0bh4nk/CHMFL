@@ -1,10 +1,10 @@
 # comparing outputs
 import os
 import glob
+from config import *
 
-problem_name = 'Problem1'
-mutant_folder = 'NTS/'+problem_name+'_mutants'
-mutant_folders = glob.glob(mutant_folder+'/*')
+
+
 
 for i in range(len(mutant_folders)):
   for j in range(0, 100):

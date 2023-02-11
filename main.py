@@ -1,9 +1,7 @@
-import sys
-import os
-import subprocess
 from distutils.ccompiler import new_compiler
 import program_sprectra
 import numpy as np
+from config import *
 
 # read c program
 
@@ -14,9 +12,6 @@ def readCprogramFile(cProgram):
             lineContent[i+1]=line
     return lineContent
 
-root_folder = 'NTS_Repo/'
-problem_folder = 'quicksort/'
-problem_name = 'quicksort'
 mutant_code = root_folder + problem_folder + problem_name + '_mutants/v1/' + problem_name + '.c'
 
 code = readCprogramFile(mutant_code)

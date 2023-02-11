@@ -1,0 +1,4 @@
+56c56
+<       while(intArray[++leftPointer] < pivot) {
+---
+>       while(intArray[++leftPointer] < pivot-1) {

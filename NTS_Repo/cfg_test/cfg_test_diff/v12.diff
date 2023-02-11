@@ -1,0 +1,4 @@
+43c43
+<     printf("\n-4\n");
+---
+>     printf("\nnot -4\n");

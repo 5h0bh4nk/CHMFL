@@ -1,0 +1,4 @@
+167c167
+< 				current1 = current1->right; 
+---
+> 				current1 = current1->left; 

@@ -1,0 +1,4 @@
+202c202
+< 	rest=(p+q+r)-(min+max);
+---
+> 	rest=(p+q)-(min+max);

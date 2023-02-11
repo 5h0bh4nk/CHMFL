@@ -1,0 +1,4 @@
+53c53
+<     printf("\nnot 100\n");
+---
+>     printf("\n100\n");

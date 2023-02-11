@@ -1,0 +1,4 @@
+215c215
+< 	rest=(s+t+u)-(min+max);
+---
+> 	rest=(s+t)-(min+max);

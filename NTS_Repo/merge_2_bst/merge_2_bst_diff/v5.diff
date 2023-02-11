@@ -1,0 +1,4 @@
+201c201
+< 	min= p < q ? (p < r ? p : r) : (q < r ? q : r); 
+---
+> 	min= p < q ? (p < r ? p : r) : (q < r ? r : r); 

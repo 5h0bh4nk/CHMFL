@@ -1,0 +1,4 @@
+87c87
+<     printf("\nnot 1\n");
+---
+>     printf("\n1\n");

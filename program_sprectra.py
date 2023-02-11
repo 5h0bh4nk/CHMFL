@@ -1,9 +1,6 @@
 import os
 import gcov_reader
-
-root_folder = 'NTS_Repo/'
-problem_folder = 'quicksort/'
-problem_name = 'quicksort'
+from config import *
 
 # get number of failed and passed test cases for each mutant
 def get_test_results(mutant_output_folder, oracle_output_folder):
@@ -44,14 +41,10 @@ def print_result_passed(final_result, mutant_count, test_count):
         print('Failed test cases: ' + str(final_result[i][0]))
         print('__________________________________________________________________________________________________')
 
-root_folder = 'NTS_Repo/'
-problem_folder = 'quicksort/'
-problem_name = 'quicksort'
 
 mutant_count = 1
 test_count = len(os.listdir(root_folder + problem_folder + problem_name + '_test_suite'))
 
-problem_name = 'quicksort'
 # print_result_passed(test_execution_result, mutant_count, test_count)
 test_execution_result = get_test_results(root_folder + problem_folder + problem_name + '_mutant_output', root_folder + problem_folder + problem_name + '_oracle_output')
 print_result_passed(test_execution_result, mutant_count, test_count)

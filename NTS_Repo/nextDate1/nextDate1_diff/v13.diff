@@ -1,0 +1,4 @@
+140c140
+<         offset2 = offset1 + x; 
+---
+>         offset2 = offset1 - x; 

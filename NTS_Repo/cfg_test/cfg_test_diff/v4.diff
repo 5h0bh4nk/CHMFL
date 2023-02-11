@@ -1,0 +1,4 @@
+25c25
+<     printf("\nnot greater than 13\n");
+---
+>     printf("\ngreater than 13\n");
