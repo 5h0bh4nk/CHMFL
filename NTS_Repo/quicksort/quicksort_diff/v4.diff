@@ -1,0 +1,4 @@
+67c67
+<          printf(" item swapped :%d,%d\n", intArray[leftPointer],intArray[rightPointer]);
+---
+>          printf(" item swapped : %d,%d\n", intArray[leftPointer],intArray[rightPointer]);

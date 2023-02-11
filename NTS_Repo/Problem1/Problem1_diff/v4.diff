@@ -1,0 +1,4 @@
+66c66
+<     	 printf("%d\n", 21); fflush(stdout); 
+---
+>     	 printf("%d \n", 213); fflush(stdout); 

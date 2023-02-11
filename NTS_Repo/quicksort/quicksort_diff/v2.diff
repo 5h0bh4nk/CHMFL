@@ -1,0 +1,4 @@
+60c60
+<       while(rightPointer > 0 && intArray[--rightPointer] > pivot) {
+---
+>       while(rightPointer > 0 && intArray[--rightPointer] >= pivot) {

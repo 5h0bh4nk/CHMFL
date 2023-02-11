@@ -1,0 +1,4 @@
+18c18
+<     return 0; 
+---
+>     return 1; 

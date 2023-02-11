@@ -1,0 +1,4 @@
+164c164
+< 			if (current1->data < current2->data) 
+---
+> 			if (current1->data > current2->data) 

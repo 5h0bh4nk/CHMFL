@@ -1,0 +1,4 @@
+62c62
+<     printf("\n19\n");
+---
+>     printf("\nnot 19\n");

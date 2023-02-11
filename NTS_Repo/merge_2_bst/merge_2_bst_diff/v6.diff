@@ -1,0 +1,4 @@
+213c213
+< 	max= s > t ? (s > u ? s : u) : (t > u ? t : u); 
+---
+> 	max= s > t ? (s > s? s : u) : (t > u ? t : u); 

@@ -1,0 +1,4 @@
+35c35
+<     printf("\nnot 7\n");
+---
+>     printf("\n7\n");
