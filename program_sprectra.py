@@ -16,7 +16,7 @@ def get_test_results(mutant_output_folder, oracle_output_folder):
 
 
     ########################### change to len(mutanats)
-    for i in range(1):
+    for i in range(len(mutants)):
         # create a list to store the number of failed and passed test cases for each mutant
         test_result = [[],[]]
         for j in range(len(test_cases)):
@@ -67,7 +67,7 @@ def get_coverage_result(statement_line_in_code, mutant_version):
             d += 1
     # get coverage for failed test cases
     for i in range(len(test_execution_result[mutant_version - 1][0])):
-        gcov_file = 'NTS_Repo/quicksort/quicksort_gcov/v' + str(mutant_version) + '/' + str(test_execution_result[mutant_version - 1][1][i]) + '/' + problem_name + '.c.gcov'
+        gcov_file = 'NTS_Repo/quicksort/quicksort_gcov/v' + str(mutant_version) + '/' + str(test_execution_result[mutant_version - 1][0][i]) + '/' + problem_name + '.c.gcov'
         if gcov_reader.check_if_statement_covered(statement_line_in_code, gcov_file):
             a += 1
         else:

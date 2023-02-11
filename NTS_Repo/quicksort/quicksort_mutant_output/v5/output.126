@@ -1,0 +1,34 @@
+Input Array: [-11 -12 -13 -14 -15 -16 -17 -18 ]
+==================================================
+Do nothing
+Do nothing
+Do nothing
+Do nothing
+Do nothing
+Do nothing
+Do nothing
+ pivot swapped :-11,-18
+Updated Array: [-18 -12 -13 -14 -15 -16 -17 -11 ]
+ item swapped :-12,-17
+Do nothing
+Do nothing
+Do nothing
+Do nothing
+ pivot swapped :-12,-11
+Updated Array: [-18 -17 -13 -14 -15 -16 -11 -12 ]
+Do nothing
+Do nothing
+Do nothing
+ pivot swapped :-17,-16
+Updated Array: [-18 -16 -13 -14 -15 -17 -11 -12 ]
+Do nothing
+Do nothing
+Do nothing
+Do nothing
+ pivot swapped :-13,-17
+Updated Array: [-18 -16 -17 -14 -15 -13 -11 -12 ]
+ item swapped :-14,-15
+ pivot swapped :-14,-13
+Updated Array: [-18 -16 -17 -15 -13 -14 -11 -12 ]
+Output Array: [-18 -16 -17 -15 -13 -14 -11 -12 ]
+==================================================

@@ -1,0 +1,46 @@
+Input Array: [100 90 80 70 60 50 40 30 ]
+==================================================
+Do nothing
+Do nothing
+Do nothing
+Do nothing
+Do nothing
+Do nothing
+Do nothing
+ pivot swapped :100,30
+Updated Array: [30 90 80 70 60 50 40 100 ]
+Do nothing
+Do nothing
+Do nothing
+Do nothing
+Do nothing
+Do nothing
+ pivot swapped :100,100
+Updated Array: [30 90 80 70 60 50 40 100 ]
+Do nothing
+Do nothing
+Do nothing
+Do nothing
+Do nothing
+ pivot swapped :90,40
+Updated Array: [30 40 80 70 60 50 90 100 ]
+Do nothing
+Do nothing
+Do nothing
+Do nothing
+ pivot swapped :90,90
+Updated Array: [30 40 80 70 60 50 90 100 ]
+Do nothing
+Do nothing
+Do nothing
+ pivot swapped :80,50
+Updated Array: [30 40 50 70 60 80 90 100 ]
+Do nothing
+Do nothing
+ pivot swapped :80,80
+Updated Array: [30 40 50 70 60 80 90 100 ]
+Do nothing
+ pivot swapped :70,60
+Updated Array: [30 40 50 60 70 80 90 100 ]
+Output Array: [30 40 50 60 70 80 90 100 ]
+==================================================

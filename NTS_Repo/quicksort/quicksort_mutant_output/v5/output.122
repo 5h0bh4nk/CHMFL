@@ -1,0 +1,24 @@
+Input Array: [11 12 13 14 15 16 17 18 ]
+==================================================
+Do nothing
+Do nothing
+Do nothing
+Do nothing
+Do nothing
+Do nothing
+ pivot swapped :17,18
+Updated Array: [11 12 13 14 15 16 18 17 ]
+Do nothing
+Do nothing
+Do nothing
+Do nothing
+ pivot swapped :15,16
+Updated Array: [11 12 13 14 16 15 18 17 ]
+Do nothing
+Do nothing
+ pivot swapped :13,14
+Updated Array: [11 12 14 13 16 15 18 17 ]
+ pivot swapped :11,12
+Updated Array: [12 11 14 13 16 15 18 17 ]
+Output Array: [12 11 14 13 16 15 18 17 ]
+==================================================

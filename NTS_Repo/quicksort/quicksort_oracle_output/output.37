@@ -1,0 +1,33 @@
+Input Array: [0 -3 -4 -5 -2 -1 -6 0 ]
+==================================================
+ item swapped :0,-6
+Do nothing
+Do nothing
+Do nothing
+Do nothing
+Do nothing
+ pivot swapped :0,0
+Updated Array: [-6 -3 -4 -5 -2 -1 0 0 ]
+Do nothing
+Do nothing
+Do nothing
+Do nothing
+Do nothing
+ pivot swapped :-1,-1
+Updated Array: [-6 -3 -4 -5 -2 -1 0 0 ]
+Do nothing
+Do nothing
+Do nothing
+Do nothing
+ pivot swapped :-2,-2
+Updated Array: [-6 -3 -4 -5 -2 -1 0 0 ]
+Do nothing
+Do nothing
+Do nothing
+ pivot swapped :-3,-5
+Updated Array: [-6 -5 -4 -3 -2 -1 0 0 ]
+Do nothing
+ pivot swapped :-3,-3
+Updated Array: [-6 -5 -4 -3 -2 -1 0 0 ]
+Output Array: [-6 -5 -4 -3 -2 -1 0 0 ]
+==================================================

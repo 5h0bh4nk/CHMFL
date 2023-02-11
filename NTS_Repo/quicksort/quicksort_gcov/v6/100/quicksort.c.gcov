@@ -1,0 +1,103 @@
+        -:    0:Source:NTS_Repo/quicksort/quicksort_mutants/v6/quicksort.c
+        -:    0:Graph:NTS_Repo/quicksort/quicksort_mutants/v6/quicksort.gcno
+        -:    0:Data:NTS_Repo/quicksort/quicksort_mutants/v6/quicksort.gcda
+        -:    0:Runs:1
+        -:    1://This program is taken from website: https://www.tutorialspoint.com/data_structures_algorithms/quick_sort_program_in_c.htm
+        -:    2:
+        -:    3:#include <stdio.h>
+        -:    4:#include <stdbool.h>
+        -:    5:#include <stdlib.h> 
+        -:    6:
+        -:    7:
+        -:    8:#define MAX 8
+        -:    9:
+        -:   10:int intArray[MAX];
+        -:   11:
+        1:   12:void getdata(int* argv[]){
+        1:   13:    intArray[0]=atoi(argv[1]);
+        1:   14:    intArray[1]=atoi(argv[2]);
+        1:   15:    intArray[2]=atoi(argv[3]);
+        1:   16:    intArray[3]=atoi(argv[4]);
+        1:   17:    intArray[4]=atoi(argv[5]);
+        1:   18:    intArray[5]=atoi(argv[6]);
+        1:   19:    intArray[6]=atoi(argv[7]);
+        1:   20:    intArray[7]=atoi(argv[8]);
+        1:   21:}
+        -:   22:
+        2:   23:void printline(int count) {
+        -:   24:   int i;
+        -:   25:	
+      100:   26:   for(i = 0;i < count-1;i++) {
+       98:   27:      printf("=");
+        -:   28:   }
+        -:   29:	
+        2:   30:   printf("=\n");
+        2:   31:}
+        -:   32:
+        6:   33:void display() {
+        -:   34:   int i;
+        6:   35:   printf("[");
+        -:   36:	
+        -:   37:   // navigate through all items 
+       54:   38:   for(i = 0;i < MAX;i++) {
+       48:   39:      printf("%d ",intArray[i]);
+        -:   40:   }
+        -:   41:	
+        6:   42:   printf("]\n");
+        6:   43:}
+        -:   44:
+        6:   45:void swap(int num1, int num2) {
+        6:   46:   int temp = intArray[num1];
+        6:   47:   intArray[num1] = intArray[num2];
+        6:   48:   intArray[num2] = temp;
+        6:   49:}
+        -:   50:
+        4:   51:int partition(int left, int right, int pivot) {
+        4:   52:   int leftPointer = left -1;
+        4:   53:   int rightPointer = right;
+        -:   54:
+        -:   55:   while(true) {
+       19:   56:      while(intArray[++leftPointer] < pivot) {
+       13:   57:        printf("Do nothing\n");
+        -:   58:      }
+        -:   59:		
+        6:   60:      while(rightPointer >= 0 && intArray[--rightPointer] > pivot) {
+    #####:   61:        printf("Do nothing\n");
+        -:   62:      }
+        -:   63:
+        6:   64:      if(leftPointer >= rightPointer) {
+        4:   65:         break;
+        -:   66:      } else {
+        2:   67:         printf(" item swapped :%d,%d\n", intArray[leftPointer],intArray[rightPointer]);
+        2:   68:         swap(leftPointer,rightPointer);
+        -:   69:      }
+        -:   70:   }
+        -:   71:	
+        4:   72:   printf(" pivot swapped :%d,%d\n", intArray[leftPointer],intArray[right]);
+        4:   73:   swap(leftPointer,right);
+        4:   74:   printf("Updated Array: "); 
+        4:   75:   display();
+        4:   76:   return leftPointer;
+        -:   77:}
+        -:   78:
+        9:   79:void quickSort(int left, int right) {
+        9:   80:   if(right-left <= 0) {
+        5:   81:      return;   
+        -:   82:   } else {
+        4:   83:      int pivot = intArray[right];
+        4:   84:      int partitionPoint = partition(left, right, pivot);
+        4:   85:      quickSort(left,partitionPoint-1);
+        4:   86:      quickSort(partitionPoint+1,right);
+        -:   87:   }        
+        -:   88:}
+        -:   89:
+        1:   90:int main(int argc, int* argv[]) {
+        1:   91:    getdata(argv);
+        1:   92:   printf("Input Array: ");
+        1:   93:   display();
+        1:   94:   printline(50);
+        1:   95:   quickSort(0,MAX-1);
+        1:   96:   printf("Output Array: ");
+        1:   97:   display();
+        1:   98:   printline(50);
+        -:   99:}

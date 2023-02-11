@@ -1,0 +1,34 @@
+Input Array: [10 9 8 7 6 5 4 3 ]
+==================================================
+Do nothing
+Do nothing
+Do nothing
+Do nothing
+Do nothing
+Do nothing
+Do nothing
+ pivot swapped :10,3
+Updated Array: [3 9 8 7 6 5 4 10 ]
+ item swapped :9,4
+Do nothing
+Do nothing
+Do nothing
+Do nothing
+ pivot swapped :9,10
+Updated Array: [3 4 8 7 6 5 10 9 ]
+Do nothing
+Do nothing
+Do nothing
+ pivot swapped :4,5
+Updated Array: [3 5 8 7 6 4 10 9 ]
+Do nothing
+Do nothing
+Do nothing
+Do nothing
+ pivot swapped :8,4
+Updated Array: [3 5 4 7 6 8 10 9 ]
+ item swapped :7,6
+ pivot swapped :7,8
+Updated Array: [3 5 4 6 8 7 10 9 ]
+Output Array: [3 5 4 6 8 7 10 9 ]
+==================================================
