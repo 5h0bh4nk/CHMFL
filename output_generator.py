@@ -7,6 +7,8 @@ from config import *
 
 # run actual program
 
+os.system('mkdir '+ root_folder + problem_folder + problem_name+'_oracle_output')
+
 os.system('gcc -w '+ root_folder + problem_folder + problem_name + '_source/' + problem_name + '.c') # -o '+ root_folder + problem_folder + problem_name + '/a.out')
 for i in range(1, len(test_suite_files)+1):
   os.system('xargs -a '+ testsuite_folder +'input.'+str(i)+' ./a.out > '+ root_folder + problem_folder + problem_name + '_oracle_output/output.'+str(i))
@@ -14,7 +16,7 @@ for i in range(1, len(test_suite_files)+1):
 
 print('Done generating oracle outputs')
 # check number of folder for mutants
-
+os.system('mkdir '+ root_folder + problem_folder + problem_name+'_mutant_output')
 for i in range(len(mutant_folders)):
   os.system('mkdir '+ root_folder + problem_folder + problem_name+'_mutant_output/v'+str(i+1))
   # compile teh program

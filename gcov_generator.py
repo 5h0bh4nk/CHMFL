@@ -2,14 +2,15 @@
 
 import os
 from config import *
-
+os.system('mkdir '+ root_folder + problem_folder + problem_name + '_gcov' )
 def generate_gcov_for_all_inputs():
-
+    
     for i in range(len(mutant_folders)):
 
         os.system('mkdir '+ root_folder + problem_folder + problem_name + '_gcov/v' + str(i+1))
         # executing the program
-        for j in range(len(testsuite_folder)):
+
+        for j in range(len(os.listdir(testsuite_folder))):
 
             os.system('gcc -w -c -Wall -pg -fprofile-arcs -ftest-coverage ' + root_folder + problem_folder + problem_name +'_mutants/v'+str(i+1)+'/'+problem_name+'.c')# -o NTS/'+problem_name+'_mutants/v'+str(i+1)+'/a.out')
             os.system('gcc -Wall -pg -fprofile-arcs -ftest-coverage ' + problem_name+'.o')
