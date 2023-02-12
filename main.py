@@ -18,7 +18,7 @@ mutant_code = root_folder + problem_folder + problem_name + '_mutants/v1/' + pro
 # get cmh score for each statement in code
 
 
-for i in range(1,7):
+for i in range(1,len(mutant_folders)+1):
     cmh_score = {}
     mutant_code = root_folder + problem_folder + problem_name + '_mutants/v'+str(i)+'/'+ problem_name + '.c'
 
@@ -40,7 +40,7 @@ for i in range(1,7):
     sorted_cmh_score = sorted(cmh_score.items(), key=lambda x: x[1], reverse=True)
     # write cmh score to file
 
-    with open('cmh_score'+str(i)+ '.txt', 'w') as file:
+    with open('cmh_output/'+ problem_folder + 'cmh_score'+str(i)+ '.txt', 'w') as file:
         file.write("LineNo\t\tCMHVAlue\t\tLine of code\n")
         for key, value in sorted_cmh_score:
             code[key]=code[key].lstrip()

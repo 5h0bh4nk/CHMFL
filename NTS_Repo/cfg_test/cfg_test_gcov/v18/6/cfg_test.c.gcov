@@ -1,0 +1,97 @@
+        -:    0:Source:NTS_Repo/cfg_test/cfg_test_mutants/v18/cfg_test.c
+        -:    0:Graph:NTS_Repo/cfg_test/cfg_test_mutants/v18/cfg_test.gcno
+        -:    0:Data:NTS_Repo/cfg_test/cfg_test_mutants/v18/cfg_test.gcda
+        -:    0:Runs:1
+        -:    1:/* Copyright (c) 2008, Jacob Burnim (jburnim@cs.berkeley.edu)
+        -:    2: *
+        -:    3: * This file is part of CREST, which is distributed under the revised
+        -:    4: * BSD license.  A copy of this license can be found in the file LICENSE.
+        -:    5: *
+        -:    6: * This program is distributed in the hope that it will be useful, but
+        -:    7: * WITHOUT ANY WARRANTY; without even the implied warranty of
+        -:    8: * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See LICENSE
+        -:    9: * for details.
+        -:   10: */
+        -:   11:
+        -:   12:#include <stdio.h>
+        -:   13:#include <stdlib.h>
+        -:   14:
+        -:   15:void f(int);
+        -:   16:void g(int);
+        -:   17:void h(int);
+        -:   18:void i(int);
+        -:   19:
+        -:   20:
+        1:   21:void f(int a) {
+        1:   22:  if (a > 13) {
+    #####:   23:    printf("\ngreater than 13\n");
+        -:   24:  } else {
+        1:   25:    printf("\nnot greater than 13\n");
+        -:   26:  }
+        1:   27:}
+        -:   28:
+        2:   29:void g(int a) {
+        2:   30:  h(a);
+        -:   31:
+        2:   32:  if (a == 7) {
+    #####:   33:    printf("\n7\n");
+        -:   34:  } else {
+        2:   35:    printf("\nnot 7\n");
+        -:   36:  }
+        -:   37:
+        2:   38:  i(a);
+        2:   39:}
+        -:   40:
+        2:   41:void h(int a) {
+        2:   42:  if (a == -4) {
+    #####:   43:    printf("\n-4\n");
+        -:   44:  } else {
+        2:   45:    printf("\nnot -4\n");
+        -:   46:  }
+        2:   47:}
+        -:   48:
+        2:   49:void i(int a) {
+        2:   50:  if (a == 100) {
+    #####:   51:    printf("\n100\n");
+        -:   52:  } else {
+        2:   53:    printf("\nnot 100\n");
+        -:   54:  }
+        2:   55:}
+        -:   56:
+        1:   57:int main(int argc, int* argv[]) {
+        -:   58:  int a;
+        1:   59:  a=atoi(argv[1]);
+        -:   60:
+        1:   61:  if (a <= 19) {
+        1:   62:    printf("\n19\n");
+        -:   63:  } else {
+    #####:   64:    printf("\nnot 19\n");
+        -:   65:  }
+        -:   66: 
+        1:   67:  if (a> 5){
+    #####:   68:	printf("\nThe value of is greater than 5");
+    #####:   69:	printf("\nThe value of a is %d", a);
+    #####:   70:  	f(a);
+        -:   71:	}
+        1:   72:   if (a< 5){
+        1:   73:	printf("\nThe value of is less than 5");
+        1:   74:	printf("\nThe value of a is %d", a);
+        1:   75:  	g(a);
+        -:   76:	}
+        1:   77:    if (a==5){
+    #####:   78:        printf("\nThe value of is equal to 5");
+    #####:   79:	printf("\nThe value of a is %d", a);
+    #####:   80:	f(a);
+    #####:   81:  	g(a);
+        -:   82:	}
+        1:   83:  f(a);
+        1:   84:  g(a);
+        -:   85:
+        1:   86:  if (a != 1) {
+        1:   87:    printf("\nnot 1\n");
+        -:   88:  } else {
+    #####:   89:    printf("\n1\n");
+        -:   90:  }
+        -:   91:
+        1:   92:  return 0;
+        -:   93:}
