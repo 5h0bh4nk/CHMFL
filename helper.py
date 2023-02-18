@@ -1,4 +1,4 @@
-from distutils.ccompiler import new_compiler
+# from distutils.ccompiler import new_compiler
 import program_sprectra
 import numpy as np
 from config import *
@@ -12,7 +12,7 @@ def readCprogramFile(cProgram):
             lineContent[i+1]=line
     return lineContent
 
-mutant_code = root_folder + problem_folder + problem_name + '_mutants/v1/' + problem_name + '.c'
+mutant_code = problem_folder + '_mutants/v1/' + problem_name + '.c'
 
 
 # get cmh score for each statement in code
@@ -20,7 +20,7 @@ mutant_code = root_folder + problem_folder + problem_name + '_mutants/v1/' + pro
 
 for i in range(1,len(mutant_folders)+1):
     cmh_score = {}
-    mutant_code = root_folder + problem_folder + problem_name + '_mutants/v'+str(i)+'/'+ problem_name + '.c'
+    mutant_code = problem_folder + '_mutants/v'+str(i)+'/'+ problem_name + '.c'
 
     code = readCprogramFile(mutant_code)
     for key, value in code.items():
@@ -40,7 +40,7 @@ for i in range(1,len(mutant_folders)+1):
     sorted_cmh_score = sorted(cmh_score.items(), key=lambda x: x[1], reverse=True)
     # write cmh score to file
 
-    with open('cmh_output/'+ problem_folder + 'cmh_score'+str(i)+ '.txt', 'w') as file:
+    with open('cmh_output/'+ problem + 'cmh_score'+str(i)+ '.txt', 'w') as file:
         file.write("LineNo\t\tCMHVAlue\t\tLine of code\n")
         for key, value in sorted_cmh_score:
             code[key]=code[key].lstrip()

@@ -43,24 +43,24 @@ def print_result_passed(final_result, mutant_count, test_count):
 
 
 mutant_count = 1
-test_count = len(os.listdir(root_folder + problem_folder + problem_name + '_test_suite'))
+test_count = len(os.listdir(problem_folder + '_test_suite'))
 
 # print_result_passed(test_execution_result, mutant_count, test_count)
-test_execution_result = get_test_results(root_folder + problem_folder + problem_name + '_mutant_output', root_folder + problem_folder + problem_name + '_oracle_output')
+test_execution_result = get_test_results(problem_folder + '_mutant_output', problem_folder + '_oracle_output')
 print_result_passed(test_execution_result, mutant_count, test_count)
 # get values of a, b, c, d
 def get_coverage_result(statement_line_in_code, mutant_version):
     a, b, c, d = 0, 0, 0, 0
     # get coverage for passed test cases
     for i in range(len(test_execution_result[mutant_version - 1][1])):
-        gcov_file = root_folder + problem_folder +  problem_name +'_gcov/v'+ str(mutant_version) + '/' + str(test_execution_result[mutant_version - 1][1][i]) + '/' + problem_name + '.c.gcov'
+        gcov_file = problem_folder +'_gcov/v'+ str(mutant_version) + '/' + str(test_execution_result[mutant_version - 1][1][i]) + '/' + problem_name + '.c.gcov'
         if gcov_reader.check_if_statement_covered(statement_line_in_code, gcov_file):
             c += 1
         else:
             d += 1
     # get coverage for failed test cases
     for i in range(len(test_execution_result[mutant_version - 1][0])):
-        gcov_file = root_folder + problem_folder +  problem_name +'_gcov/v' + str(mutant_version) + '/' + str(test_execution_result[mutant_version - 1][0][i]) + '/' + problem_name + '.c.gcov'
+        gcov_file = problem_folder +'_gcov/v' + str(mutant_version) + '/' + str(test_execution_result[mutant_version - 1][0][i]) + '/' + problem_name + '.c.gcov'
         if gcov_reader.check_if_statement_covered(statement_line_in_code, gcov_file):
             a += 1
         else:
