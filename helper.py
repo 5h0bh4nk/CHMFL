@@ -1,4 +1,4 @@
-from distutils.ccompiler import new_compiler
+# from distutils.ccompiler import new_compiler
 import program_sprectra
 import numpy as np
 from config import *
