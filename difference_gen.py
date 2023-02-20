@@ -3,14 +3,9 @@
 import os
 import sys
 import subprocess
-
-problem_name = 'quicksort'
-root_folder = 'NTS_Repo/'
+from config import *
 
 all_problem_files = os.listdir(root_folder)
-
-
-print(all_problem_files)
 
 for problem_name in all_problem_files:
     mutant_folder = root_folder + problem_name + '/' + problem_name + '_mutants/'
