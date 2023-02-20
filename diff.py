@@ -16,7 +16,7 @@ def plot(filename):
 
 
     plt.figure(figsize=(10,10))
-    plt.scatter(df[df.columns[1]],range(1,len(df)+1), s=10)
+    plt.plot(df[df.columns[1]],range(1,len(df)+1))
     plt.ylabel('Version')
     plt.xlabel('Line Number')
     plt.title(f'{filename}')

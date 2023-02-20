@@ -1,0 +1,230 @@
+        -:    0:Source:NTS_Repo/merge_2_bst/merge_2_bst_mutants/v3/merge_2_bst.c
+        -:    0:Graph:NTS_Repo/merge_2_bst/merge_2_bst_mutants/v3/merge_2_bst.gcno
+        -:    0:Data:NTS_Repo/merge_2_bst/merge_2_bst_mutants/v3/merge_2_bst.gcda
+        -:    0:Runs:1
+        -:    1://This program is taken from the website: https://www.geeksforgeeks.org/merge-two-bsts-with-limited-extra-space/
+        -:    2:
+        -:    3:
+        -:    4:#include<stdio.h> 
+        -:    5:#include<stdlib.h> 
+        -:    6:
+        -:    7:// Structure of a BST Node 
+        -:    8:struct node 
+        -:    9:{ 
+        -:   10:	int data; 
+        -:   11:	struct node *left; 
+        -:   12:	struct node *right; 
+        -:   13:}; 
+        -:   14:
+        -:   15://.................... START OF STACK RELATED STUFF.................... 
+        -:   16:// A stack node 
+        -:   17:struct snode 
+        -:   18:{ 
+        -:   19:	struct node *t; 
+        -:   20:	struct snode *next; 
+        -:   21:}; 
+        -:   22:
+        -:   23:// Function to add an elemt k to stack 
+        9:   24:void push(struct snode **s, struct node *k) 
+        -:   25:{ 
+        9:   26:	struct snode *tmp = (struct snode *) malloc(sizeof(struct snode)); 
+        -:   27:
+        -:   28:	//perform memory check here 
+        9:   29:	tmp->t = k; 
+        9:   30:	tmp->next = *s; 
+        9:   31:	(*s) = tmp; 
+        9:   32:} 
+        -:   33:
+        -:   34:// Function to pop an element t from stack 
+        9:   35:struct node *pop(struct snode **s) 
+        -:   36:{ 
+        -:   37:	struct node *t; 
+        -:   38:	struct snode *st; 
+        9:   39:	st=*s; 
+        9:   40:	(*s) = (*s)->next; 
+        9:   41:	t = st->t; 
+        9:   42:	free(st); 
+        9:   43:	return t; 
+        -:   44:} 
+        -:   45:
+        -:   46:// Fucntion to check whether the stack is empty or not 
+       18:   47:int isEmpty(struct snode *s) 
+        -:   48:{ 
+       18:   49:	if (s == NULL ) 
+        2:   50:		return 1; 
+        -:   51:
+       16:   52:	return 0; 
+        -:   53:} 
+        -:   54://.................... END OF STACK RELATED STUFF.................... 
+        -:   55:
+        -:   56:
+        -:   57:/* Utility function to create a new Binary Tree node */
+        6:   58:struct node* newNode (int data) 
+        -:   59:{ 
+        6:   60:	struct node *temp = (struct node*)malloc(sizeof(struct node)); 
+        6:   61:	temp->data = data; 
+        6:   62:	temp->left = NULL; 
+        6:   63:	temp->right = NULL; 
+        6:   64:	return temp; 
+        -:   65:} 
+        -:   66:
+        -:   67:/* A utility function to print Inoder traversal of a Binary Tree */
+        5:   68:void inorder(struct node *root) 
+        -:   69:{ 
+        5:   70:	if (root != NULL) 
+        -:   71:	{ 
+        2:   72:		inorder(root->left); 
+        2:   73:		printf("%d ", root->data); 
+        2:   74:		inorder(root->right); 
+        -:   75:	} 
+        5:   76:} 
+        -:   77:
+        -:   78:// The function to print data of two BSTs in sorted order 
+        1:   79:void merge(struct node *root1, struct node *root2) 
+        -:   80:{ 
+        -:   81:	// s1 is stack to hold nodes of first BST 
+        1:   82:	struct snode *s1 = NULL; 
+        -:   83:
+        -:   84:	// Current node of first BST 
+        1:   85:	struct node *current1 = root1; 
+        -:   86:
+        -:   87:	// s2 is stack to hold nodes of second BST 
+        1:   88:	struct snode *s2 = NULL; 
+        -:   89:
+        -:   90:	// Current node of second BST 
+        1:   91:	struct node *current2 = root2; 
+        -:   92:
+        -:   93:	// If first BST is empty, then output is inorder 
+        -:   94:	// traversal of second BST 
+        1:   95:	if (root1 == NULL) 
+        -:   96:	{ 
+    #####:   97:		inorder(root2); 
+       1*:   98:		return; 
+        -:   99:	} 
+        -:  100:	// If second BST is empty, then output is inorder 
+        -:  101:	// traversal of first BST 
+        1:  102:	if (root2 == NULL) 
+        -:  103:	{ 
+    #####:  104:		inorder(root1); 
+    #####:  105:		return ; 
+        -:  106:	} 
+        -:  107:
+        -:  108:	// Run the loop while there are nodes not yet printed. 
+        -:  109:	// The nodes may be in stack(explored, but not printed) 
+        -:  110:	// or may be not yet explored 
+       7*:  111:	while (current1 != NULL || !isEmpty(s1) || 
+       8*:  112:		current2 != NULL || !isEmpty(s2)) 
+        -:  113:	{ 
+        -:  114:		// Following steps follow iterative Inorder Traversal 
+        8:  115:		if (current1 != NULL || current2 != NULL ) 
+        -:  116:		{ 
+        -:  117:			// Reach the leftmost node of both BSTs and push ancestors of 
+        -:  118:			// leftmost nodes to stack s1 and s2 respectively 
+        3:  119:			if (current1 != NULL) 
+        -:  120:			{ 
+        2:  121:				push(&s1, current1); 
+        2:  122:				current1 = current1->left; 
+        -:  123:			} 
+        3:  124:			if (current2 != NULL) 
+        -:  125:			{ 
+        3:  126:				push(&s2, current2); 
+        3:  127:				current2 = current2->left; 
+        -:  128:			} 
+        -:  129:
+        -:  130:		} 
+        -:  131:		else
+        -:  132:		{ 
+        -:  133:			// If we reach a NULL node and either of the stacks is empty, 
+        -:  134:			// then one tree is exhausted, ptint the other tree 
+        5:  135:			if (isEmpty(s1)) 
+        -:  136:			{ 
+    #####:  137:				while (!isEmpty(s2)) 
+        -:  138:				{ 
+    #####:  139:					current2 = pop (&s2); 
+    #####:  140:					current2->left = NULL; 
+    #####:  141:					inorder(current2); 
+        -:  142:				} 
+    #####:  143:				return ; 
+        -:  144:			} 
+        5:  145:			if (isEmpty(s2)) 
+        -:  146:			{ 
+        2:  147:				while (!isEmpty(s1)) 
+        -:  148:				{ 
+        1:  149:					current1 = pop (&s1); 
+        1:  150:					current1->left = NULL; 
+        1:  151:					inorder(current1); 
+        -:  152:				} 
+        1:  153:				return ; 
+        -:  154:			} 
+        -:  155:
+        -:  156:			// Pop an element from both stacks and compare the 
+        -:  157:			// popped elements 
+        4:  158:			current1 = pop(&s1); 
+        4:  159:			current2 = pop(&s2); 
+        -:  160:
+        -:  161:			// If element of first tree is smaller, then print it 
+        -:  162:			// and push the right subtree. If the element is larger, 
+        -:  163:			// then we push it back to the corresponding stack. 
+        4:  164:			if (current1->data < current2->data) 
+        -:  165:			{ 
+        1:  166:				printf("%d ", current1->data); 
+        1:  167:				current1 = current1->right; 
+        1:  168:				push(&s2, current2); 
+        1:  169:				current2 = NULL; 
+        -:  170:			} 
+        -:  171:			else
+        -:  172:			{ 
+        3:  173:				printf("%d ", current2->data); 
+        3:  174:				current2 = current2->left; 
+        3:  175:				push(&s1, current1); 
+        3:  176:				current1 = NULL; 
+        -:  177:			} 
+        -:  178:		} 
+        -:  179:	} 
+        -:  180:} 
+        -:  181:
+        -:  182:/* Driver program to test above functions */
+        1:  183:int main(int argc, int* argv[]) 
+        -:  184:{ 
+        1:  185:	struct node *root1 = NULL, *root2 = NULL; 
+        -:  186:
+        -:  187:	/* Let us create the following tree as first tree 
+        -:  188:			3 
+        -:  189:		/ \ 
+        -:  190:		1 5 
+        -:  191:	*/
+        -:  192:	int p,q,r,s,t,u, max,min,rest;
+        1:  193:	p=atoi(argv[1]);
+        1:  194:	q=atoi(argv[2]);
+        1:  195:	r=atoi(argv[3]);
+        1:  196:	s=atoi(argv[4]);
+        1:  197:	t=atoi(argv[5]);
+        1:  198:	u=atoi(argv[6]);
+        -:  199:	
+       1*:  200:	max= p > q ? (p > r ? p : r) : (q > r ? q : r); 
+       1*:  201:	min= p < q ? (p < r ? p : r) : (q < r ? q : r); 
+        1:  202:	rest=(p+q+r)-(min+max);
+        1:  203:	root1 = newNode(rest); 
+        1:  204:	root1->left = newNode(min); 
+        1:  205:	root1->right = newNode(max); 
+        -:  206:
+        -:  207:	/* Let us create the following tree as second tree 
+        -:  208:			4 
+        -:  209:		/ \ 
+        -:  210:		2 6 
+        -:  211:	*/
+        -:  212:
+       1*:  213:	max= s > t ? (s > u ? s : u) : (t > u ? t : u); 
+       1*:  214:	min= s < t ? (s < u ? s : u) : (t < u ? t : u); 
+        1:  215:	rest=(s+t+u)-(min+max);
+        1:  216:	root2 = newNode(rest); 
+        1:  217:	root2->left = newNode(min); 
+        1:  218:	root2->right = newNode(max);
+        -:  219: 
+        -:  220:
+        -:  221:	// Print sorted nodes of both trees 
+        1:  222:	merge(root1, root2); 
+        -:  223:
+        1:  224:	return 0; 
+        -:  225:} 
+        -:  226:
