@@ -16,7 +16,8 @@ def plot(filename):
 
 
     plt.figure(figsize=(10,10))
-    plt.plot(df[df.columns[1]],range(1,len(df)+1))
+    y_plot = np.array(range(1,len(df)+1))
+    plt.plot(df[df.columns[1]]/df[df.columns[1]].iloc[-1],y_plot/len(y_plot))
     plt.ylabel('Version')
     plt.xlabel('Line Number')
     plt.title(f'{filename}')
@@ -52,4 +53,5 @@ def difference(problem_folder,problem_name,problem,error):
     output_file.close()
     plot(problem_name)
 
-difference(problem_folder,problem_name,problem,5)
+# difference(problem_folder,problem_name,problem,5)
+plot("finaloutput")
