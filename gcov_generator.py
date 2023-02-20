@@ -11,6 +11,8 @@ def generate_gcov_for_all_inputs():
         # executing the program
 
         for j in range(len(os.listdir(testsuite_folder))):
+            print("version:", i)
+            print("test_case:", j)
 
             os.system('gcc -w -c -Wall -pg -fprofile-arcs -ftest-coverage ' + problem_folder  +'_mutants/v'+str(i+1)+'/'+problem_name+'.c')# -o NTS/'+problem_name+'_mutants/v'+str(i+1)+'/a.out')
             os.system('gcc -Wall -pg -fprofile-arcs -ftest-coverage ' + problem_name+'.o')

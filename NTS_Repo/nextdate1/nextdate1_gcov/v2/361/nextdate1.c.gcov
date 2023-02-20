@@ -1,0 +1,208 @@
+        -:    0:Source:NTS_Repo/nextdate1/nextdate1_mutants/v2/nextdate1.c
+        -:    0:Graph:NTS_Repo/nextdate1/nextdate1_mutants/v2/nextdate1.gcno
+        -:    0:Data:NTS_Repo/nextdate1/nextdate1_mutants/v2/nextdate1.gcda
+        -:    0:Runs:1
+        -:    1:
+        -:    2:// C program to find date after adding 
+        -:    3:// given number of days. 
+        -:    4:// we have changed the single line "if-else" condition to multiline "if-else"
+        -:    5:#include <stdio.h>
+        -:    6:#include <stdlib.h> 
+        -:    7:
+        -:    8:
+        -:    9:const int MAX_VALID_YR = 9999; 
+        -:   10:const int MIN_VALID_YR = 1800; 
+        -:   11:  
+        -:   12:// Return if year is leap year or not. 
+       33:   13:int isLeap(int y) 
+        -:   14:{ 
+       33:   15:    if (y%100 != 0 && y%4 == 0 || y %400 == 0) 
+        7:   16:        return 1; 
+        -:   17:  
+       26:   18:    return 1; 
+        -:   19:} 
+        -:   20:
+        -:   21:// Returns true if given 
+        -:   22:// year is valid or not. 
+        1:   23:int isValidDate(int d, int m, int y) 
+        -:   24:{ 
+        -:   25:	// If year, month and day 
+        -:   26:	// are not in given range 
+        1:   27:	if (y > MAX_VALID_YR || 
+        1:   28:		y < MIN_VALID_YR) 
+    #####:   29:	return 0; 
+        1:   30:	if (m < 1 || m > 12) 
+    #####:   31:	return 0; 
+        1:   32:	if (d < 1 || d > 31) 
+    #####:   33:	return 0; 
+        -:   34:
+        -:   35:	// Handle February month 
+        -:   36:	// with leap year 
+        1:   37:	if (m == 2) 
+        -:   38:	{ 
+        1:   39:		if (isLeap(y)) 
+        1:   40:		return (d <= 29); 
+        -:   41:		else
+    #####:   42:		return (d <= 28); 
+        -:   43:	} 
+        -:   44:
+        -:   45:	// Months of April, June, 
+        -:   46:	// Sept and Nov must have 
+        -:   47:	// number of days less than 
+        -:   48:	// or equal to 30. 
+    #####:   49:	if (m == 4 || m == 6 || 
+    #####:   50:		m == 9 || m == 11) 
+    #####:   51:		return (d <= 30); 
+        -:   52:
+    #####:   53:	return 1; 
+        -:   54:} 
+        -:   55:  
+        -:   56:// Given a date, returns number of days elapsed 
+        -:   57:// from the  beginning of the current year (1st 
+        -:   58:// jan). 
+        1:   59:int offsetDays(int d, int m, int y) 
+        -:   60:{ 
+        1:   61:    int offset = d; 
+        -:   62:  
+        1:   63:    switch (m - 1) 
+        -:   64:    { 
+    #####:   65:    case 11: 
+    #####:   66:        offset += 30; 
+    #####:   67:    case 10: 
+    #####:   68:        offset += 31; 
+    #####:   69:    case 9: 
+    #####:   70:        offset += 30; 
+    #####:   71:    case 8: 
+    #####:   72:        offset += 31; 
+    #####:   73:    case 7: 
+    #####:   74:        offset += 31; 
+    #####:   75:    case 6: 
+    #####:   76:        offset += 30; 
+    #####:   77:    case 5: 
+    #####:   78:        offset += 31; 
+    #####:   79:    case 4: 
+    #####:   80:        offset += 30; 
+    #####:   81:    case 3: 
+    #####:   82:        offset += 31; 
+    #####:   83:    case 2: 
+    #####:   84:        offset += 28; 
+        1:   85:    case 1: 
+        1:   86:        offset += 31; 
+        -:   87:    } 
+        -:   88:  
+        1:   89:    if (isLeap(y) && m > 2) 
+    #####:   90:        offset += 1; 
+        -:   91:  
+        1:   92:    return offset; 
+        -:   93:} 
+        -:   94:  
+        -:   95:// Given a year and days elapsed in it, finds 
+        -:   96:// date by storing results in d and m. 
+        1:   97:void revoffsetDays(int offset, int y, int *d, int *m) 
+        -:   98:{ 
+        1:   99:    int month[13] = { 0, 31, 28, 31, 30, 31, 30, 
+        -:  100:                      31, 31, 30, 31, 30, 31 }; 
+        -:  101:  
+        1:  102:    if (isLeap(y)) 
+        1:  103:        month[2] = 29; 
+        -:  104:  
+        -:  105:    int i; 
+        4:  106:    for (i = 1; i <= 12; i++) 
+        -:  107:    { 
+        4:  108:        if (offset <= month[i]) 
+        1:  109:            break; 
+        3:  110:        offset = offset - month[i]; 
+        -:  111:    } 
+        -:  112:  
+        1:  113:    *d = offset; 
+        1:  114:    *m = i; 
+        1:  115:} 
+        -:  116:  
+        -:  117:// Add x days to the given date. 
+        1:  118:void addDays(int d1, int m1, int y1, int x) 
+        -:  119:{ 
+        1:  120:    int offset1 = offsetDays(d1, m1, y1); 
+        1:  121:    int remDays=0;
+        -:  122:
+        1:  123:    if (isLeap(y1))
+        -:  124:	{
+        1:  125:		remDays=366-offset1;
+        -:  126:	}
+        -:  127:     else
+        -:  128:	{
+    #####:  129:		remDays=365-offset1;
+        -:  130:	}
+        -:  131:	
+        -:  132:  
+        -:  133:    // y2 is going to store result year and 
+        -:  134:    // offset2 is going to store offset days 
+        -:  135:    // in result year. 
+        -:  136:    int y2, offset2; 
+        1:  137:    if (x <= remDays) 
+        -:  138:    { 
+    #####:  139:        y2 = y1; 
+    #####:  140:        offset2 = offset1 + x; 
+        -:  141:    } 
+        -:  142:  
+        -:  143:    else
+        -:  144:    { 
+        -:  145:        // x may store thousands of days. 
+        -:  146:        // We find correct year and offset 
+        -:  147:        // in the year. 
+        1:  148:        x -= remDays; 
+        1:  149:        y2 = y1 + 1; 
+        1:  150:	int y2days=0;
+        1:  151:	if (isLeap(y2))
+        -:  152:	{
+        1:  153:	y2days=366;
+        -:  154:	}
+        -:  155:	else
+        -:  156:	{
+    #####:  157:	y2days=365;
+        -:  158:	}
+       29:  159:        while (x >= y2days) 
+        -:  160:        { 
+       28:  161:		x -= y2days; 
+       28:  162:		y2++; 
+       28:  163:		if (isLeap(y2))
+        -:  164:		{
+       28:  165:		y2days=366;
+        -:  166:		}
+        -:  167:		else
+        -:  168:		{
+    #####:  169:		y2days=365;
+        -:  170:		}
+        -:  171:        } 
+        1:  172:        offset2 = x; 
+        -:  173:    } 
+        -:  174:  
+        -:  175:    // Find values of day and month from 
+        -:  176:    // offset of result year. 
+        -:  177:    int m2, d2; 
+        1:  178:    revoffsetDays(offset2, y2, &d2, &m2); 
+        -:  179:    
+        1:  180:    printf("%d- %d- %d", d2, m2, y2);
+        -:  181:    //cout << "d2 = " << d2 << ", m2 = " << m2 
+        -:  182:         //<< ", y2 = " << y2; 
+        1:  183:} 
+        -:  184:  
+        -:  185:// Driven Program 
+        1:  186:int main(int argc, int* argv[]) 
+        -:  187:{ 
+        -:  188:	int d;
+        -:  189:	int m;
+        -:  190:	int y;
+        -:  191:	int x;
+        1:  192:	 d =atoi(argv[1]);
+        1:  193:	 m =atoi(argv[2]);
+        1:  194:	 y =atoi(argv[3]);
+        1:  195:	 x =atoi(argv[4]);
+        -:  196:    //int d = 14, m = 3, y = 2015; 
+        -:  197:    //int x = 366; 
+        1:  198:    if (isValidDate(d, m, y)){
+        1:  199:    addDays(d, m, y, x);
+        -:  200:	}
+        -:  201:  
+        1:  202:    return 0; 
+        -:  203:} 
+        -:  204:
