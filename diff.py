@@ -2,11 +2,28 @@ from config import *
 import csv
 import os
 import pandas as ps
+import matplotlib.pyplot as plt
+import numpy as np
 
 def plot(filename):
-    df = ps.read_csv(f'./output/{filename}.csv',index_col=0)
-    df.sort_values(df.columns[0],axis=0,inplace=True)
-    print(df.head())
+    df = ps.read_csv(f'./output/{filename}.csv')
+    df.sort_values(df.columns[1],axis=0,inplace=True)
+
+    # cummulative value of x
+    df[df.columns[1]] = df[df.columns[1]].cumsum()
+
+    print(df[df.columns[1]])
+
+
+    plt.figure(figsize=(10,10))
+    plt.plot(df[df.columns[1]],range(1,len(df)+1))
+    plt.ylabel('Version')
+    plt.xlabel('Line Number')
+    plt.title(f'{filename}')
+    plt.savefig(f'./output/{filename}.png')
+    plt.show()
+
+    print(df)
 
 def difference(problem_folder,problem_name,problem,error):
     output_file = open(f'./output/{problem_name}.csv','w')

@@ -5,12 +5,16 @@ from config import *
 os.system('mkdir '+ problem_folder + '_gcov' )
 def generate_gcov_for_all_inputs():
     
-    for i in range(len(mutant_folders)):
+    for i in range(1,len(mutant_folders)):
 
         os.system('mkdir '+ problem_folder + '_gcov/v' + str(i+1))
         # executing the program
 
         for j in range(len(os.listdir(testsuite_folder))):
+
+            # check if already exists
+            if os.path.exists(problem_folder +'_gcov/v'+str(i+1)+'/'+str(j+1)):
+                continue
 
             os.system('gcc -w -c -Wall -pg -fprofile-arcs -ftest-coverage ' + problem_folder  +'_mutants/v'+str(i+1)+'/'+problem_name+'.c')# -o NTS/'+problem_name+'_mutants/v'+str(i+1)+'/a.out')
             os.system('gcc -Wall -pg -fprofile-arcs -ftest-coverage ' + problem_name+'.o')
