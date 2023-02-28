@@ -32,7 +32,9 @@ def difference(problem_folder,problem_name,problem,error):
     writer.writeheader()
     for versions in os.listdir(f"{problem_folder}_mutants"):
         version_no=versions[1:]
-        cmh_score_file=f"cmh_output/{problem}/cmh_score{version_no}.txt"
+        if(int(version_no)>14): 
+            continue
+        cmh_score_file=f"cmh_output/{problem}cmh_score{version_no}.txt"
         version_diff_file=f"{problem_folder}_diff/v{version_no}.diff"
 
         diff_file=open(version_diff_file,'r')

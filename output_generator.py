@@ -19,7 +19,7 @@ for i in range(1, len(test_suite_files)+1):
 print('Done generating oracle outputs')
 # check number of folder for mutants
 os.system('mkdir '+ problem_folder +'_mutant_output')
-for i in range(len(mutant_folders)):
+for i in range(1, 15):
   os.system('mkdir '+ problem_folder +'_mutant_output/v'+str(i+1))
   # compile teh program
   os.system('gcc -w '+ problem_folder +'_mutants/v'+str(i+1)+'/'+problem_name+'.c') # -o '+ problem_folder +'_mutants/v'+str(i+1)+'/a.out')
