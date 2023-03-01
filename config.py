@@ -2,6 +2,13 @@
 import os
 import glob
 
+locs ={
+    'Problem1':431,
+    'quicksort':99,
+    'cfg_test':93,
+    'merge_2_bst':226,
+    'nextdate1':204,
+}
 
 root_folder = 'NTS_Repo/'
 problem = 'Problem1/'

@@ -6,7 +6,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 def plot(filename):
-    df = ps.read_csv(f'./output/{filename}.csv')
+    df = ps.read_csv(f'./output/final_output.csv')
     df.sort_values(df.columns[1],axis=0,inplace=True)
 
     # cummulative value of x
@@ -27,9 +27,8 @@ def plot(filename):
     print(df)
 
 def difference(problem_folder,problem_name,problem,error):
-    output_file = open(f'./output/{problem_name}.csv','w')
+    output_file = open(f'./output/final_output.csv','a')
     writer = csv.DictWriter(output_file,fieldnames=['ver','x','y'])
-    writer.writeheader()
     for versions in os.listdir(f"{problem_folder}_mutants"):
         version_no=versions[1:]
         if(int(version_no)>14): 
@@ -48,12 +47,12 @@ def difference(problem_folder,problem_name,problem,error):
                 continue
             line_no = int(line.split()[0])
             if diff_line_no - error <= line_no and line_no <= diff_line_no + error:
-                writer.writerow({'ver':int(version_no),'x':current_line_no,'y':line_no})
+                writer.writerow({'ver':int(version_no),'x':current_line_no,'y':locs[problem_name]})
                 break 
             current_line_no+=1
         score_file.close()
     output_file.close()
     plot(problem_name)
 
-# difference(problem_folder,problem_name,problem,5)
-plot("finaloutput")
+difference(problem_folder,problem_name,problem,5)
+# plot("finaloutput")
