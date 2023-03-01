@@ -103,7 +103,59 @@ def graph_plot():
     # plt.scatter(x, y, s=20, color = 'red')
     plt.show()
 
+def compare(opposite):
+    df = ps.read_csv(f'./output/final_output.csv')
+        
+
+    df.sort_values(df.columns[0],axis=0,inplace=True)
+    print(df)
+    cur_val=df.values[1, 1]
+    print(df.shape)
+    val=0
+    n=0
+    n1 = 0
+    x=[0]
+    y=[0]
+    for i in range(len(df)):
+        if df.values[i, 1] != cur_val:
+            cur_val=df.values[i, 1]
+            y.append((n/len(df))*100)
+            x.append((val/n1)*100)
+            val = 0
+            n1=0
+        n+=1
+        n1+=1
+        val+=df.values[i, 1]/df.values[i, 2]
+
+
+    df1 = ps.read_csv(f'./others/{opposite}.csv')
+    # df.sort_values(df.columns[1],axis=0,inplace=True)
+
+    # # cummulative value of x
+    # df[df.columns[1]] = df[df.columns[1]].cumsum()
+
+    print(df1[df1.columns[0]])
+    print(df1.head())
+
+
+    # plt.figure(figsize=(10,10))
+    plt.plot(df1[df1.columns[0]],df1[df1.columns[1]], color = 'red', label=f'{opposite} best')
+
+    plt.plot(x,y, color = 'blue', label="PRCMH best")
+    plt.ylabel(' % Faulty Versions')
+    plt.xlabel(' % Statements examined')
+    plt.title('NTS Test Suite')
+    plt.legend()
+    plt.savefig(f'./output/{opposite}.png')
+    # plt.scatter(x, y, s=20, color = 'red')
+    
+    plt.show()
+
 
 # difference(problem_folder,problem_name,problem,5)
 # plot("final_output")
-graph_plot()
+# graph_plot()
+
+compare("dstar")
+compare("zoltar")
+compare("ochiai")
