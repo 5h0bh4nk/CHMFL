@@ -5,7 +5,11 @@ from config import *
 os.system('mkdir '+ problem_folder + '_gcov' )
 def generate_gcov_for_all_inputs():
     
+<<<<<<< HEAD
+    for i in range(len(mutant_folder)):
+=======
     for i in range(15,20):
+>>>>>>> eaa3ed8b3913be5e56072f3eba1ea1f15762805d
 
         os.system('mkdir '+ problem_folder + '_gcov/v' + str(i+1))
         # executing the program
@@ -13,9 +17,14 @@ def generate_gcov_for_all_inputs():
             continue
 
         for j in range(len(os.listdir(testsuite_folder))):
+<<<<<<< HEAD
+
+
+=======
             # i = 8
             # j = 3021
             
+>>>>>>> eaa3ed8b3913be5e56072f3eba1ea1f15762805d
             print("version:", i)
             print("test_case:", j)
 
