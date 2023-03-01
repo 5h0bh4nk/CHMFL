@@ -1,0 +1,435 @@
+        -:    0:Source:NTS_Repo/Problem1/Problem1_mutants/v18/Problem1.c
+        -:    0:Graph:NTS_Repo/Problem1/Problem1_mutants/v18/Problem1.gcno
+        -:    0:Data:NTS_Repo/Problem1/Problem1_mutants/v18/Problem1.gcda
+        -:    0:Runs:1
+        -:    1:#include <stdio.h> 
+        -:    2:#include <assert.h>
+        -:    3:#include <math.h>
+        -:    4:#include <stdlib.h>
+        -:    5:
+        -:    6://#include <crest.h>
+        -:    7:    extern void __VERIFIER_error(int);
+        -:    8:
+        -:    9:	// inputs
+        -:   10:	int inputs[] = {2,5,3,1,4};
+        -:   11:
+        -:   12:	void calculate_output(int);
+        -:   13:	void calculate_outputm1(int);
+        -:   14:	void calculate_outputm2(int);
+        -:   15:	void calculate_outputm3(int);
+        -:   16:	void calculate_outputm4(int);
+        -:   17:	void calculate_outputm5(int);
+        -:   18:	void calculate_outputm6(int);
+        -:   19:	void calculate_outputm7(int);
+        -:   20:	void calculate_outputm8(int);
+        -:   21:	void calculate_outputm9(int);
+        -:   22:	void calculate_outputm10(int);
+        -:   23:	void calculate_outputm11(int);
+        -:   24:	void calculate_outputm12(int);
+        -:   25:	void calculate_outputm13(int);
+        -:   26:	void calculate_outputm14(int);
+        -:   27:	void calculate_outputm15(int);
+        -:   28:	void calculate_outputm16(int);
+        -:   29:	void calculate_outputm17(int);
+        -:   30:	void calculate_outputm18(int);
+        -:   31:	void calculate_outputm19(int);
+        -:   32:	void calculate_outputm20(int);
+        -:   33:
+        -:   34:	 int a167  = 33;
+        -:   35:	 int a52 = 9;
+        -:   36:	 int a166  = 33;
+        -:   37:	 int a176 = 7;
+        -:   38:	 int a175 = 6;
+        -:   39:	 int cf = 1;
+        -:   40:	 int a62  = 32;
+        -:   41:
+    #####:   42: void calculate_outputm1(int input) {
+    #####:   43:    if(((( cf==1  && a166 == 33) && (input == 3)) && a176 == 6)) {
+    #####:   44:    	cf = 0;
+    #####:   45:    	a166 = 36 ;
+    #####:   46:    	a62 = 33 ; 
+    #####:   47:    	 printf("%d\n", 21); fflush(stdout); 
+        -:   48:    } 
+    #####:   49:    if((a166 == 33 && (((input == 2) &&  cf==1 ) && a176 == 6))) {
+    #####:   50:    	cf = 0;
+        -:   51:    	 
+    #####:   52:    	 printf("%d\n", 19); fflush(stdout); 
+        -:   53:    } 
+    #####:   54:    if(((( cf==1  && a166 == 33) && (input == 4)) && a176 == 6)) {
+    #####:   55:    	cf = 0;
+    #####:   56:    	a166 = 32 ;
+    #####:   57:    	a52 = 9; 
+    #####:   58:    	 printf("%d\n", 26); fflush(stdout); 
+        -:   59:    } 
+    #####:   60:}
+        1:   61: void calculate_outputm2(int input) {
+       1*:   62:    if((a166 == 33 && (( cf==1  && (input == 4)) && a176 == 7))) {
+    #####:   63:    	cf = 0;
+    #####:   64:    	a166 = 36 ;
+    #####:   65:    	a62 = 33 ; 
+    #####:   66:    	 printf("%d\n", 21); fflush(stdout); 
+        -:   67:    } 
+        1:   68:    if((a176 == 7 && ((input == 3) && (a166 == 33 &&  cf==1 )))) {
+        1:   69:    	cf = 0;
+        1:   70:    	a176 = 11; 
+        1:   71:    	 printf("%d\n", 26); fflush(stdout); 
+        -:   72:    } 
+        1:   73:}
+    #####:   74: void calculate_outputm3(int input) {
+    #####:   75:    if(((((input == 5) &&  cf==1 ) && a166 == 33) && a176 == 8)) {
+    #####:   76:    	cf = 0;
+    #####:   77:    	a166 = 35 ;
+    #####:   78:    	a175 = 6; 
+    #####:   79:    	 printf("%d\n", 19); fflush(stdout); 
+        -:   80:    } 
+    #####:   81:    if((a166 == 33 && (( cf==1  && (input == 2)) && a176 == 8))) {
+    #####:   82:    	cf = 0;
+    #####:   83:    	a166 = 36 ;
+    #####:   84:    	a62 = 32 ; 
+    #####:   85:    	 printf("%d\n", 19); fflush(stdout); 
+        -:   86:    } 
+    #####:   87:    if(((a176 == 8 && ( cf==1  && (input == 4))) && a166 == 33)) {
+    #####:   88:    	cf = 0;
+    #####:   89:    	a166 = 36 ;
+    #####:   90:    	a62 = 33 ; 
+    #####:   91:    	 printf("%d\n", 26); fflush(stdout); 
+        -:   92:    } 
+    #####:   93:}
+    #####:   94: void calculate_outputm4(int input) {
+    #####:   95:    if(((input == 1) && ((a166 == 33 &&  cf==1 ) && a176 == 10))) {
+    #####:   96:    	cf = 0;
+    #####:   97:    	a176 = 12; 
+    #####:   98:    	 printf("%d\n", 25); fflush(stdout); 
+        -:   99:    } 
+    #####:  100:}
+        1:  101: void calculate_outputm5(int input) {
+       1*:  102:    if((a176 == 11 && ((input == 5) && (a166 == 33 &&  cf==1 )))) {
+    #####:  103:    	cf = 0;
+    #####:  104:    	a166 = 34 ;
+    #####:  105:    	a167 = 32 ; 
+    #####:  106:    	 printf("%d\n", 21); fflush(stdout); 
+        -:  107:    } 
+       1*:  108:    if((((input == 2) && ( cf==1  && a176 == 11)) && a166 == 33)) {
+    #####:  109:    	cf = 0;
+    #####:  110:    	a176 = 10; 
+    #####:  111:    	 printf("%d\n", 23); fflush(stdout); 
+        -:  112:    } 
+        1:  113:    if(((a166 == 33 && ((input == 1) &&  cf==1 )) && a176 == 11)) {
+        1:  114:    	cf = 0;
+        1:  115:    	a166 = 35 ;
+        1:  116:    	a175 = 8; 
+        1:  117:    	 printf("%d\n", 25); fflush(stdout); 
+        -:  118:    } 
+        1:  119:}
+    #####:  120: void calculate_outputm6(int input) {
+    #####:  121:    if((a176 == 12 && ((a166 == 33 &&  cf==1 ) && (input == 4)))) {
+    #####:  122:    	cf = 0;
+        -:  123:    	 
+    #####:  124:    	 printf("%d\n", 19); fflush(stdout); 
+        -:  125:    } 
+    #####:  126:    if(((a176 == 12 && ((input == 2) &&  cf==1 )) && a166 == 33)) {
+    #####:  127:    	cf = 0;
+    #####:  128:    	a166 = 36 ;
+    #####:  129:    	a62 = 32 ; 
+    #####:  130:    	 printf("%d\n", 21); fflush(stdout); 
+        -:  131:    } 
+    #####:  132:    if((a176 == 12 && (a166 == 33 && ((input == 3) &&  cf==1 )))) {
+    #####:  133:    	cf = 0;
+    #####:  134:    	a176 = 10; 
+    #####:  135:    	 printf("%d\n", 23); fflush(stdout); 
+        -:  136:    } 
+    #####:  137:}
+    #####:  138: void calculate_outputm7(int input) {
+    #####:  139:    if((a52 == 5 && ((input == 3) && (a166 == 32 &&  cf==1 )))) {
+    #####:  140:    	cf = 0;
+    #####:  141:    	a166 = 36 ;
+    #####:  142:    	a62 = 32 ; 
+    #####:  143:    	 printf("%d\n", 19); fflush(stdout); 
+        -:  144:    } 
+    #####:  145:}
+        1:  146: void calculate_outputm8(int input) {
+       1*:  147:    if(((input == 4) && ((a166 == 32 &&  cf==1 ) && a52 == 7))) {
+    #####:  148:    	cf = 0;
+        -:  149:    	 
+    #####:  150:    	 printf("%d\n", 20); fflush(stdout); 
+        -:  151:    } 
+        1:  152:    if(((a52 == 7 && (a166 == 32 &&  cf==1 )) && (input == 5))) {
+        1:  153:    	cf = 0;
+        1:  154:    	a166 = 35 ;
+        1:  155:    	a175 = 8; 
+        1:  156:    	 printf("%d\n", 21); fflush(stdout); 
+        -:  157:    } 
+        1:  158:}
+    #####:  159: void calculate_outputm9(int input) {
+    #####:  160:    if((a166 == 32 && (((input == 4) &&  cf==1 ) && a52 == 8))) {
+    #####:  161:    	cf = 0;
+    #####:  162:    	a52 = 9; 
+    #####:  163:    	 printf("%d\n", 25); fflush(stdout); 
+        -:  164:    } 
+    #####:  165:}
+    #####:  166: void calculate_outputm10(int input) {
+    #####:  167:    if((((input == 3) && (a52 == 9 &&  cf==1 )) && a166 == 32)) {
+    #####:  168:    	cf = 0;
+        -:  169:    	 
+    #####:  170:    	 printf("%d\n", 25); fflush(stdout); 
+        -:  171:    } 
+    #####:  172:    if((a52 == 9 && (((input == 2) &&  cf==1 ) && a166 == 32))) {
+    #####:  173:    	cf = 0;
+        -:  174:    	 
+    #####:  175:    	 printf("%d\n", 25); fflush(stdout); 
+        -:  176:    } 
+    #####:  177:}
+    #####:  178: void calculate_outputm11(int input) {
+    #####:  179:    if(((input == 1) && (a167 == 33 && (a166 == 34 &&  cf==1 )))) {
+    #####:  180:    	cf = 0;
+    #####:  181:    	a166 = 36 ;
+    #####:  182:    	a62 = 33 ; 
+    #####:  183:    	 printf("%d\n", 25); fflush(stdout); 
+        -:  184:    } 
+    #####:  185:    if(((( cf==1  && a167 == 33) && (input == 5)) && a166 == 34)) {
+    #####:  186:    	cf = 0;
+    #####:  187:    	a166 = 36 ;
+    #####:  188:    	a62 = 35 ; 
+    #####:  189:    	 printf("%d\n", 25); fflush(stdout); 
+        -:  190:    } 
+    #####:  191:}
+    #####:  192: void calculate_outputm12(int input) {
+    #####:  193:    if(((( cf==1  && a167 == 32) && (input == 4)) && a166 == 34)) {
+    #####:  194:    	cf = 0;
+    #####:  195:    	a167 = 35 ; 
+    #####:  196:    	 printf("%d\n", 23); fflush(stdout); 
+        -:  197:    } 
+    #####:  198:    if(((( cf==1  && (input == 1)) && a167 == 32) && a166 == 34)) {
+    #####:  199:    	cf = 0;
+    #####:  200:    	a166 = 32 ;
+    #####:  201:    	a52 = 5; 
+    #####:  202:    	 printf("%d\n", 19); fflush(stdout); 
+        -:  203:    } 
+    #####:  204:    if((((input == 5) && ( cf==1  && a167 == 32)) && a166 == 34)) {
+    #####:  205:    	cf = 0;
+    #####:  206:    	a167 = 34 ; 
+    #####:  207:    	 printf("%d\n", 21); fflush(stdout); 
+        -:  208:    } 
+    #####:  209:}
+    #####:  210: void calculate_outputm13(int input) {
+    #####:  211:    if(((a167 == 34 && ( cf==1  && (input == 1))) && a166 == 34)) {
+    #####:  212:    	cf = 0;
+    #####:  213:    	a166 = 32 ;
+    #####:  214:    	a52 = 9; 
+    #####:  215:    	 printf("%d\n", 20); fflush(stdout); 
+        -:  216:    } 
+    #####:  217:    if((a166 == 34 && (((input == 4) &&  cf==1 ) && a167 == 34))) {
+    #####:  218:    	cf = 0;
+    #####:  219:    	a166 = 33 ;
+    #####:  220:    	a176 = 11; 
+    #####:  221:    	 printf("%d\n", 21); fflush(stdout); 
+        -:  222:    } 
+    #####:  223:}
+    #####:  224: void calculate_outputm14(int input) {
+    #####:  225:    if((a166 == 34 && ((input == 5) && (a167 == 35 &&  cf==1 )))) {
+    #####:  226:    	cf = 0;
+    #####:  227:    	a167 = 32 ; 
+    #####:  228:    	 printf("%d\n", 25); fflush(stdout); 
+        -:  229:    } 
+    #####:  230:    if((((a167 == 35 &&  cf==1 ) && a166 == 34) && (input == 3))) {
+    #####:  231:    	cf = 0;
+    #####:  232:    	a166 = 36 ;
+    #####:  233:    	a62 = 32 ; 
+    #####:  234:    	 printf("%d\n", 20); fflush(stdout); 
+        -:  235:    } 
+    #####:  236:    if(((input == 2) && (a166 == 34 && ( cf==1  && a167 == 35)))) {
+    #####:  237:    	cf = 0;
+    #####:  238:    	a166 = 36 ;
+    #####:  239:    	a62 = 32 ; 
+    #####:  240:    	 printf("%d\n", 25); fflush(stdout); 
+        -:  241:    } 
+    #####:  242:}
+    #####:  243: void calculate_outputm15(int input) {
+    #####:  244:    if(((((input == 1) &&  cf==1 ) && a166 == 35) && a175 == 4)) {
+    #####:  245:    	cf = 0;
+    #####:  246:    	a166 = 33 ;
+    #####:  247:    	a176 = 11; 
+    #####:  248:    	 printf("%d\n", 21); fflush(stdout); 
+        -:  249:    } 
+    #####:  250:    if((a175 == 4 && ((a166 == 35 &&  cf==1 ) && (input == 2)))) {
+    #####:  251:    	cf = 0;
+    #####:  252:    	a175 = 8; 
+    #####:  253:    	 printf("%d\n", 21); fflush(stdout); 
+        -:  254:    } 
+    #####:  255:}
+    #####:  256: void calculate_outputm16(int input) {
+    #####:  257:    if(((( cf==1  && a175 == 6) && (input == 2)) && a166 == 35)) {
+    #####:  258:    	cf = 0;
+    #####:  259:    	a166 = 33 ;
+    #####:  260:    	a176 = 8; 
+    #####:  261:    	 printf("%d\n", 25); fflush(stdout); 
+        -:  262:    } 
+    #####:  263:    if(((input == 1) && ((a166 == 35 &&  cf==1 ) && a175 == 6))) {
+    #####:  264:    	cf = 0;
+    #####:  265:    	a166 = 33 ;
+    #####:  266:    	a176 = 6; 
+    #####:  267:    	 printf("%d\n", 25); fflush(stdout); 
+        -:  268:    } 
+    #####:  269:}
+        1:  270: void calculate_outputm17(int input) {
+        1:  271:    if((a166 == 35 && (((input == 5) &&  cf==1 ) && a175 == 8))) {
+        1:  272:    	cf = 0;
+        1:  273:    	a166 = 32 ;
+        1:  274:    	a52 = 7; 
+        1:  275:    	 printf("%d\n", 26); fflush(stdout); 
+        -:  276:    } 
+       1*:  277:    if((a166 == 35 && (( cf==1  && (input == 3)) && a175 == 8))) {
+    #####:  278:    	cf = 0;
+    #####:  279:    	a175 = 4; 
+    #####:  280:    	 printf("%d\n", 19); fflush(stdout); 
+        -:  281:    } 
+        1:  282:}
+    #####:  283: void calculate_outputm18(int input) {
+    #####:  284:    if(!(a166 == 36 && (( cf==1  && (input == 1)) && a62 == 33))) {
+    #####:  285:    	cf = 0;
+    #####:  286:    	a62 = 35 ; 
+    #####:  287:    	 printf("%d\n", 21); fflush(stdout); 
+        -:  288:    } 
+    #####:  289:    if(((a166 == 36 && ( cf==1  && a62 == 33)) && (input == 3))) {
+    #####:  290:    	cf = 0;
+    #####:  291:    	a166 = 35 ;
+    #####:  292:    	a175 = 6; 
+    #####:  293:    	 printf("%d\n", 20); fflush(stdout); 
+        -:  294:    } 
+    #####:  295:    if(((a62 == 33 && ( cf==1  && (input == 4))) && a166 == 36)) {
+    #####:  296:    	cf = 0;
+    #####:  297:    	a166 = 32 ;
+    #####:  298:    	a52 = 8; 
+    #####:  299:    	 printf("%d\n", 19); fflush(stdout); 
+        -:  300:    } 
+    #####:  301:}
+    #####:  302: void calculate_outputm19(int input) {
+    #####:  303:    if(((a166 == 36 && (a62 == 32 &&  cf==1 )) && (input == 3))) {
+    #####:  304:    	cf = 0;
+    #####:  305:    	a62 = 33 ; 
+    #####:  306:    	 printf("%d\n", 21); fflush(stdout); 
+        -:  307:    } 
+    #####:  308:    if(((input == 5) && (a62 == 32 && (a166 == 36 &&  cf==1 )))) {
+    #####:  309:    	cf = 0;
+        -:  310:    	 
+    #####:  311:    	 printf("%d\n", 25); fflush(stdout); 
+        -:  312:    } 
+    #####:  313:    if((((a166 == 36 &&  cf==1 ) && a62 == 32) && (input == 1))) {
+    #####:  314:    	cf = 0;
+        -:  315:    	 
+    #####:  316:    	 printf("%d\n", 25); fflush(stdout); 
+        -:  317:    } 
+    #####:  318:}
+    #####:  319: void calculate_outputm20(int input) {
+    #####:  320:    if((((input == 3) && (a166 == 36 &&  cf==1 )) && a62 == 35)) {
+    #####:  321:    	cf = 0;
+    #####:  322:    	a62 = 32 ; 
+    #####:  323:    	 printf("%d\n", 25); fflush(stdout); 
+        -:  324:    } 
+    #####:  325:    if((((input == 1) && ( cf==1  && a166 == 36)) && a62 == 35)) {
+    #####:  326:    	cf = 0;
+    #####:  327:    	a166 = 34 ;
+    #####:  328:    	a167 = 33 ; 
+    #####:  329:    	 printf("%d\n", 23); fflush(stdout); 
+        -:  330:    } 
+    #####:  331:}
+        -:  332:
+        4:  333: void calculate_output(int input) {
+        4:  334:        cf = 1;
+        -:  335:
+        4:  336:    if((a166 == 33 &&  cf==1 )) {
+       2*:  337:    	if((a176 == 6 &&  cf==1 )) {
+    #####:  338:    		calculate_outputm1(input);
+        -:  339:    	} 
+        2:  340:    	if(( cf==1  && a176 == 7)) {
+        1:  341:    		calculate_outputm2(input);
+        -:  342:    	} 
+       2*:  343:    	if((a176 == 8 &&  cf==1 )) {
+    #####:  344:    		calculate_outputm3(input);
+        -:  345:    	} 
+        2:  346:    	if(( cf==1  && a176 == 10)) {
+    #####:  347:    		calculate_outputm4(input);
+        -:  348:    	} 
+        2:  349:    	if((a176 == 11 &&  cf==1 )) {
+        1:  350:    		calculate_outputm5(input);
+        -:  351:    	} 
+       2*:  352:    	if((a176 == 12 &&  cf==1 )) {
+    #####:  353:    		calculate_outputm6(input);
+        -:  354:    	} 
+        -:  355:    } 
+        4:  356:    if((a166 == 32 &&  cf==1 )) {
+       1*:  357:    	if((a52 == 5 &&  cf==1 )) {
+    #####:  358:    		calculate_outputm7(input);
+        -:  359:    	} 
+        1:  360:    	if(( cf==1  && a52 == 7)) {
+        1:  361:    		calculate_outputm8(input);
+        -:  362:    	} 
+       1*:  363:    	if(( cf==1  && a52 == 8)) {
+    #####:  364:    		calculate_outputm9(input);
+        -:  365:    	} 
+       1*:  366:    	if(( cf==1  && a52 == 9)) {
+    #####:  367:    		calculate_outputm10(input);
+        -:  368:    	} 
+        -:  369:    } 
+       4*:  370:    if((a166 == 34 &&  cf==1 )) {
+    #####:  371:    	if(( cf==1  && a167 == 33)) {
+    #####:  372:    		calculate_outputm11(input);
+        -:  373:    	} 
+    #####:  374:    	if((a167 == 32 &&  cf==1 )) {
+    #####:  375:    		calculate_outputm12(input);
+        -:  376:    	} 
+    #####:  377:    	if((a167 == 34 &&  cf==1 )) {
+    #####:  378:    		calculate_outputm13(input);
+        -:  379:    	} 
+    #####:  380:    	if(( cf==1  && a167 == 35)) {
+    #####:  381:    		calculate_outputm14(input);
+        -:  382:    	} 
+        -:  383:    } 
+        4:  384:    if(( cf==1  && a166 == 35)) {
+        1:  385:    	if(( cf==1  && a175 == 4)) {
+    #####:  386:    		calculate_outputm15(input);
+        -:  387:    	} 
+        1:  388:    	if(( cf==1  && a175 == 6)) {
+    #####:  389:    		calculate_outputm16(input);
+        -:  390:    	} 
+        1:  391:    	if(( cf==1  && a175 == 8)) {
+        1:  392:    		calculate_outputm17(input);
+        -:  393:    	} 
+        -:  394:    } 
+       4*:  395:    if((a166 == 36 &&  cf==1 )) {
+    #####:  396:    	if(( cf==1  && a62 == 33)) {
+    #####:  397:    		calculate_outputm18(input);
+        -:  398:    	} 
+    #####:  399:    	if((a62 == 32 &&  cf==1 )) {
+    #####:  400:    		calculate_outputm19(input);
+        -:  401:    	} 
+    #####:  402:    	if(( cf==1  && a62 == 35)) {
+    #####:  403:    		calculate_outputm20(input);
+        -:  404:    	} 
+        -:  405:    } 
+        -:  406:
+        -:  407:
+        4:  408:    if( cf==1 ) 
+    #####:  409:    	fprintf(stderr, "Invalid input: %d\n", input); 
+        4:  410:}
+        -:  411:
+        1:  412:int main(int argc, int* argv[])
+        -:  413:{
+        -:  414:    // main i/o-loop
+        1:  415:    int p=0;
+        1:  416:    printf("The number of arguments passed is %d", argc);
+        5:  417:    while(p<argc-1)
+        -:  418:    {
+        -:  419:        // read input
+        -:  420:        int input; 
+        -:  421:	
+        4:  422:	input =atoi(argv[p+1]);
+        -:  423:        //CREST_int(input);      
+        -:  424:        // operate eca engine
+        4:  425:	printf(" The value is %d\n",input);
+       4*:  426:        if((input != 2) && (input != 5) && (input != 3) && (input != 1) && (input != 4))
+    #####:  427:          return -2;
+        4:  428:        calculate_output(input);
+        4:  429:p++;
+        -:  430:    }
+        -:  431:}
