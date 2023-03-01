@@ -158,4 +158,4 @@ def compare(opposite):
 
 compare("dstar")
 compare("zoltar")
-compare("ochiai")
+compare("barinel")
