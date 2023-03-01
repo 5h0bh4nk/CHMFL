@@ -78,8 +78,8 @@ def dstar():
 
 def main(argc, argv):
     parser = argparse.ArgumentParser(description='dstar algorithm implementation')
-    parser.add_argument("-d", "--directory", help="The directory of coverage result.", default="~/Desktop/CHMFL/cmh_output/quicksort/", metavar = "Coverage Directory")
-    parser.add_argument("-b", "--binary", help="Target binary.", default="~/Desktop/CHMFL/cmh_output/a.out", required = True, metavar = "Binary")
+    parser.add_argument("-d", "--directory", help="The directory of coverage result.", default="~/Desktop/CHMFL/NTS_Repo/quicksort/quicksort_gcov/v1/1", metavar = "Coverage Directory")
+    parser.add_argument("-b", "--binary", help="Target binary.", default="quicksort.c.gcov", required = True, metavar = "Binary")
     args = parser.parse_args()
     BINARY = args.binary
     LOGPATH = args.directory
