@@ -18,7 +18,7 @@ mutant_code = problem_folder + '_mutants/v1/' + problem_name + '.c'
 # get cmh score for each statement in code
 
 
-for i in range(1,15):
+for i in range(15,25):
     cmh_score = {}
     mutant_code = problem_folder + '_mutants/v'+str(i)+'/'+ problem_name + '.c'
 
