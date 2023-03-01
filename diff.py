@@ -6,7 +6,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 def plot(filename):
-    df = ps.read_csv(f'./output/{filename}.csv')
+    df = ps.read_csv(f'./output/final_output.csv')
     df.sort_values(df.columns[1],axis=0,inplace=True)
 
     # cummulative value of x
@@ -17,7 +17,7 @@ def plot(filename):
 
     plt.figure(figsize=(10,10))
     y_plot = np.array(range(1,len(df)+1))
-    plt.plot(df[df.columns[1]]/df[df.columns[1]].iloc[-1],y_plot/len(y_plot))
+    plt.scatter(df[df.columns[1]]/df[df.columns[1]].iloc[-1],y_plot/len(y_plot), s=10)
     plt.ylabel('Version')
     plt.xlabel('Line Number')
     plt.title(f'{filename}')
@@ -27,13 +27,11 @@ def plot(filename):
     print(df)
 
 def difference(problem_folder,problem_name,problem,error):
-    output_file = open(f'./output/{problem_name}.csv','w')
+    output_file = open(f'./output/final_output.csv','a')
     writer = csv.DictWriter(output_file,fieldnames=['ver','x','y'])
-    writer.writeheader()
+    # writer.writeheader()
     for versions in os.listdir(f"{problem_folder}_mutants"):
         version_no=versions[1:]
-        if(int(version_no)>14): 
-            continue
         cmh_score_file=f"cmh_output/{problem}cmh_score{version_no}.txt"
         version_diff_file=f"{problem_folder}_diff/v{version_no}.diff"
 
@@ -48,12 +46,40 @@ def difference(problem_folder,problem_name,problem,error):
                 continue
             line_no = int(line.split()[0])
             if diff_line_no - error <= line_no and line_no <= diff_line_no + error:
-                writer.writerow({'ver':int(version_no),'x':current_line_no,'y':line_no})
+                writer.writerow({'ver':int(version_no),'x':current_line_no,'y':locs[problem_name]})
                 break 
             current_line_no+=1
         score_file.close()
     output_file.close()
     plot(problem_name)
 
+
+def graph_plot():
+    df = ps.read_csv(f'./output/final_output.csv',)
+    df.sort_values(df.columns[1],axis=0,inplace=True)
+    print(df)
+    cur_val=df.values[1, 1]
+    print(df.shape)
+    val=0
+    n=0
+    n1 = 0
+    x=[0]
+    y=[0]
+    for i in range(len(df)):
+        if df.values[i, 1] != cur_val:
+            cur_val=df.values[i, 1]
+            y.append((n/len(df))*100)
+            x.append((val/n1)*100)
+            val = 0
+            n1=0
+        n+=1
+        n1+=1
+        val+=df.values[i, 1]/df.values[i, 2]
+    plt.plot(x,y)
+    plt.scatter(x, y, s=20, color = 'red')
+    plt.show()
+
+
 # difference(problem_folder,problem_name,problem,5)
-plot("finaloutput")
+# plot("final_output")
+graph_plot()
