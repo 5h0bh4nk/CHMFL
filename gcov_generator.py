@@ -5,7 +5,7 @@ from config import *
 os.system('mkdir '+ problem_folder + '_gcov' )
 def generate_gcov_for_all_inputs():
     
-    for i in range(len(mutant_folders)):
+    for i in range(15,20):
 
         os.system('mkdir '+ problem_folder + '_gcov/v' + str(i+1))
         # executing the program
