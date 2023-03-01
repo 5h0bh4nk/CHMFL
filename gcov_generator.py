@@ -13,13 +13,14 @@ def generate_gcov_for_all_inputs():
             continue
 
         for j in range(len(os.listdir(testsuite_folder))):
-
+            # i = 8
+            # j = 3021
             
             print("version:", i)
             print("test_case:", j)
 
-            if os.path.exists(problem_folder +'_gcov/v'+str(i+1)+'/'+str(j+1)):
-                continue
+            # if os.path.exists(problem_folder +'_gcov/v'+str(i+1)+'/'+str(j+1)):
+                # continue
 
             os.system('gcc -w -c -Wall -pg -fprofile-arcs -ftest-coverage ' + problem_folder  +'_mutants/v'+str(i+1)+'/'+problem_name+'.c')# -o NTS/'+problem_name+'_mutants/v'+str(i+1)+'/a.out')
             os.system('gcc -Wall -pg -fprofile-arcs -ftest-coverage ' + problem_name+'.o')
