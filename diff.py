@@ -28,7 +28,7 @@ def plot(filename):
 
 def difference(problem_folder,problem_name,problem,error):
     output_file = open(f'./output/final_output.csv','a')
-    writer = csv.DictWriter(output_file,fieldnames=['ver','x','y'])
+    writer = csv.DictWriter(output_file,fieldnames=['ratio','x','y'])
     # writer.writeheader()
     for versions in os.listdir(f"{problem_folder}_mutants"):
         version_no=versions[1:]
@@ -46,17 +46,22 @@ def difference(problem_folder,problem_name,problem,error):
                 continue
             line_no = int(line.split()[0])
             if diff_line_no - error <= line_no and line_no <= diff_line_no + error:
-                writer.writerow({'ver':int(version_no),'x':current_line_no,'y':locs[problem_name]})
+                writer.writerow({'ratio':current_line_no/locs[problem_name],'x':current_line_no,'y':locs[problem_name]})
                 break 
             current_line_no+=1
         score_file.close()
     output_file.close()
-    plot(problem_name)
+    # plot(problem_name)
+
+
+
 
 
 def graph_plot():
-    df = ps.read_csv(f'./output/final_output.csv',)
-    df.sort_values(df.columns[1],axis=0,inplace=True)
+    df = ps.read_csv(f'./output/final_output.csv')
+        
+
+    df.sort_values(df.columns[0],axis=0,inplace=True)
     print(df)
     cur_val=df.values[1, 1]
     print(df.shape)
@@ -75,8 +80,27 @@ def graph_plot():
         n+=1
         n1+=1
         val+=df.values[i, 1]/df.values[i, 2]
-    plt.plot(x,y)
-    plt.scatter(x, y, s=20, color = 'red')
+
+
+    df1 = ps.read_csv(f'./others/dstar_best.csv')
+    # df.sort_values(df.columns[1],axis=0,inplace=True)
+
+    # # cummulative value of x
+    # df[df.columns[1]] = df[df.columns[1]].cumsum()
+
+    print(df1[df1.columns[0]])
+    print(df1.head())
+
+
+    # plt.figure(figsize=(10,10))
+    plt.plot(df1[df1.columns[0]],df1[df1.columns[1]], color = 'red')
+
+    plt.plot(x,y, color = 'blue')
+    plt.ylabel(' % Faulty Versions')
+    plt.xlabel(' % Statements examined')
+    plt.title('NTS Test Suite')
+    plt.savefig(f'./output/final_output.png')
+    # plt.scatter(x, y, s=20, color = 'red')
     plt.show()
 
 

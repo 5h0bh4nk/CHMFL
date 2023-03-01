@@ -1,3 +1,0 @@
-Non_Crossing_Biased_Climb, 72
-main, 155
-main, 172

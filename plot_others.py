@@ -26,4 +26,4 @@ def plot(filename):
 
     # print(df)
 
-plot("dstar")
+plot("dstar_best")

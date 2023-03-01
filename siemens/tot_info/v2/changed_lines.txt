@@ -1,3 +1,0 @@
-main, 85
-InfoTbl, 334
-InfoTbl, 362

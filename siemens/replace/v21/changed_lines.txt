@@ -1,3 +1,0 @@
-getline, 44
-addstr, 55
-makepat, 209

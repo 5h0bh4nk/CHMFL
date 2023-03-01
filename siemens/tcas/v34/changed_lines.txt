@@ -1,3 +1,0 @@
-alt_sep_test, 124
-main, 155
-main, 172

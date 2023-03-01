@@ -1,3 +1,0 @@
-InfoTbl, 307
-InfoTbl, 308
-InfoTbl, 309

@@ -1,2 +1,0 @@
-main, 30
-get_token, 188

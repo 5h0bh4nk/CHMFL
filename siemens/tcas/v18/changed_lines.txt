@@ -1,3 +1,0 @@
-initialize, 52
-main, 155
-main, 172
