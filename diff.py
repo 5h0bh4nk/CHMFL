@@ -146,6 +146,7 @@ def compare(opposite):
     plt.xlabel(' % Statements examined')
     plt.title('NTS Test Suite')
     plt.legend()
+    
     plt.savefig(f'./output/{opposite}.png')
     # plt.scatter(x, y, s=20, color = 'red')
     
