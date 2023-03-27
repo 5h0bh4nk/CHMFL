@@ -10,9 +10,9 @@ locs ={
     'nextdate1':204,
 }
 
-root_folder = 'NTS_Repo/'
-problem = 'nextdate1/'
-problem_name = 'nextdate1'
+root_folder = 'SIMENS_REPOSITORY/'
+problem = 'print_tokens2/'
+problem_name = 'print_tokens2'
 problem_folder = root_folder+problem+problem_name
 
 mutant_folder = problem_folder +'_mutants'
