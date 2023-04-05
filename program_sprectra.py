@@ -16,19 +16,19 @@ def get_test_results(mutant_output_folder, oracle_output_folder):
     for i in range(len(mutants)):
         # create a list to store the number of failed and passed test cases for each mutant
         test_result = [[],[]]
-        for j in range(len(test_cases)):
+        for j in test_cases:
             # get the output of the test case
-            with open(mutant_output_folder + '/v' + str(i + 1) + '/output.' + str(j + 1), 'r') as f:
+            with open(mutant_output_folder + '/v' + str(i + 1) + '/' + j, 'r') as f:
                 output = f.read()
             # get the expected output of the test case
-            with open(oracle_output_folder + '/output.' + str(j + 1), 'r') as f:
+            with open(oracle_output_folder + '/' + j, 'r') as f:
                 expected_output = f.read()
             # compare the output of the test case with the expected output
             if output == expected_output:
                 # failed test case
-                test_result[1].append(j + 1)
+                test_result[1].append(j)
             else:
-                test_result[0].append(j + 1)
+                test_result[0].append(j)
         test_results.append(test_result)
         # print('Mutant ' + str(i + 1) + ' evaluated !')
         print(test_result)
@@ -39,6 +39,8 @@ def print_result_passed(final_result, mutant_count, test_count):
         print('Mutant ' + str(i + 1) + ': ' + str(len(final_result[i][1])) + '/' + str(test_count) + ' passed')
         print('Passed test cases: ' + str(final_result[i][1]))
         print('Failed test cases: ' + str(final_result[i][0]))
+        print('Number of Passed test cases: ' + str(len(final_result[i][1])))
+        # print('Number of Failed test cases: ' + str(final_result[i][0].size()))
         print('__________________________________________________________________________________________________')
 
 
@@ -53,14 +55,14 @@ def get_coverage_result(statement_line_in_code, mutant_version):
     a, b, c, d = 0, 0, 0, 0
     # get coverage for passed test cases
     for i in range(len(test_execution_result[mutant_version - 1][1])):
-        gcov_file = problem_folder +'_gcov/v'+ str(mutant_version) + '/' + str(test_execution_result[mutant_version - 1][1][i]) + '/' + problem_name + '.c.gcov'
+        gcov_file = problem_folder +'_gcov/v'+ str(mutant_version) + '/' + str(test_execution_result[mutant_version - 1][1][i])[7:] + '/' + problem_name + '.c.gcov'
         if gcov_reader.check_if_statement_covered(statement_line_in_code, gcov_file):
             c += 1
         else:
             d += 1
     # get coverage for failed test cases
     for i in range(len(test_execution_result[mutant_version - 1][0])):
-        gcov_file = problem_folder +'_gcov/v' + str(mutant_version) + '/' + str(test_execution_result[mutant_version - 1][0][i]) + '/' + problem_name + '.c.gcov'
+        gcov_file = problem_folder +'_gcov/v' + str(mutant_version) + '/' + str(test_execution_result[mutant_version - 1][0][i])[7:] + '/' + problem_name + '.c.gcov'
         if gcov_reader.check_if_statement_covered(statement_line_in_code, gcov_file):
             a += 1
         else:
