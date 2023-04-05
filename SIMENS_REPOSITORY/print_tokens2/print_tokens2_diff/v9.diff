@@ -1,0 +1,4 @@
+218c218
+<    { if(ch=='\n')     /* for comment until meet end of line */
+---
+>    { if(ch=='\n' || ch == '\t')     /* for comment until meet end of line */

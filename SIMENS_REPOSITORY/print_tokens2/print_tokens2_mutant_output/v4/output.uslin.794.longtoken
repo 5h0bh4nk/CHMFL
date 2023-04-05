@@ -1,0 +1,13 @@
+rparen.
+identifier,"x".
+rparen.
+error,"\|.".
+bquote.
+keyword,"=>".
+error,"#+"e"".
+lsquare.
+identifier,"xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx".
+bquote.
+numeric,56.
+numeric,12.
+eof.

@@ -1,0 +1,4 @@
+380c380
+<      { while (*(str+i)!='\0')  /* until meet the token end sign */
+---
+>      { while (*(str)!='\0')  /* until meet the token end sign */

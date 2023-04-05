@@ -1,0 +1,13 @@
+lparen.
+error,"20".
+error,"21".
+lsquare.
+lparen.
+character,"s".
+numeric,8.
+error,"#<".
+rsquare.
+identifier,"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa".
+It can not get charcter
+error,"#:".
+eof.

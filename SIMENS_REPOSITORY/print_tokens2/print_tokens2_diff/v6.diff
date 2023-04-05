@@ -1,0 +1,4 @@
+358c358
+<        if(isdigit(*(str+i)))
+---
+>        if(isdigit(*(str+i+1)))

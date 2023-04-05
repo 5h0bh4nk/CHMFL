@@ -1,0 +1,4 @@
+164c164
+<    if(ch ==59)id=2;    /* prepare for comment */
+---
+>    if(ch ==59)id=0;    /* prepare for comment */

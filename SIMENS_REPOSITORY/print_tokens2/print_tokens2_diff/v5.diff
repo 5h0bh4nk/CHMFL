@@ -1,0 +1,4 @@
+386c386
+<      return(FALSE);
+---
+>      return(TRUE);    /* wrong return value */

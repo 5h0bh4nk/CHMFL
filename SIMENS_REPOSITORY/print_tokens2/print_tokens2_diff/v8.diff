@@ -1,0 +1,4 @@
+225c225
+<  if(ch ==' ' || ch=='\n' || ch==59) return(TRUE); 
+---
+>  if(ch ==' ' || ch=='\n' || ch==59 || ch == '\t' /* added code */) return(TRUE); 
