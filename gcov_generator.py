@@ -27,7 +27,7 @@ def generate_gcov_for_all_inputs():
             os.system('gcc -Wall -pg -fprofile-arcs -ftest-coverage ' + problem_name+'.o')
 
             # os.system('./NTS/'+problem_name+'_mutants/v'+str(i+1)+'/a.out 1 2 3 4 5')
-            os.system("./a.out < " + problem_folder +'_test_suite/'+j)
+            os.system("./a.out "+)
 
             # move object file to folder
             os.system('mv '+problem_name+'.o ' + problem_folder +'_mutants/v'+str(i+1)+'/')
