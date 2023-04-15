@@ -18549,3 +18549,423 @@ gcc -w -fprofile-arcs -ftest-coverage schedule2.c -o schedule2.exe
 gcov -c schedule2.c 
 mv *.c.gcov ../../schedule2_gcov/$1/t2650 
 rm schedule2.gcda schedule2.gcno schedule2.exe 
+echo ">>>>>>>>running test 2651"
+mkdir ../../schedule2_gcov/$1/t2651 
+gcc -w -fprofile-arcs -ftest-coverage schedule2.c -o schedule2.exe 
+./schedule2.exe 3 1 5  < ../../inputs/input/zt.1 > ../../schedule2_mutant_outputs/$1/t2651
+gcov -c schedule2.c 
+mv *.c.gcov ../../schedule2_gcov/$1/t2651 
+rm schedule2.gcda schedule2.gcno schedule2.exe 
+echo ">>>>>>>>running test 2652"
+mkdir ../../schedule2_gcov/$1/t2652 
+gcc -w -fprofile-arcs -ftest-coverage schedule2.c -o schedule2.exe 
+./schedule2.exe 1 2 3  < ../../inputs/input/zt.2 > ../../schedule2_mutant_outputs/$1/t2652
+gcov -c schedule2.c 
+mv *.c.gcov ../../schedule2_gcov/$1/t2652 
+rm schedule2.gcda schedule2.gcno schedule2.exe 
+echo ">>>>>>>>running test 2653"
+mkdir ../../schedule2_gcov/$1/t2653 
+gcc -w -fprofile-arcs -ftest-coverage schedule2.c -o schedule2.exe 
+./schedule2.exe 1 2 4  < ../../inputs/input/zt.3 > ../../schedule2_mutant_outputs/$1/t2653
+gcov -c schedule2.c 
+mv *.c.gcov ../../schedule2_gcov/$1/t2653 
+rm schedule2.gcda schedule2.gcno schedule2.exe 
+echo ">>>>>>>>running test 2654"
+mkdir ../../schedule2_gcov/$1/t2654 
+gcc -w -fprofile-arcs -ftest-coverage schedule2.c -o schedule2.exe 
+./schedule2.exe 2 3 1  < ../../inputs/input/zt.4 > ../../schedule2_mutant_outputs/$1/t2654
+gcov -c schedule2.c 
+mv *.c.gcov ../../schedule2_gcov/$1/t2654 
+rm schedule2.gcda schedule2.gcno schedule2.exe 
+echo ">>>>>>>>running test 2655"
+mkdir ../../schedule2_gcov/$1/t2655 
+gcc -w -fprofile-arcs -ftest-coverage schedule2.c -o schedule2.exe 
+./schedule2.exe 0 8 3  < ../../inputs/input/zt.5 > ../../schedule2_mutant_outputs/$1/t2655
+gcov -c schedule2.c 
+mv *.c.gcov ../../schedule2_gcov/$1/t2655 
+rm schedule2.gcda schedule2.gcno schedule2.exe 
+echo ">>>>>>>>running test 2656"
+mkdir ../../schedule2_gcov/$1/t2656 
+gcc -w -fprofile-arcs -ftest-coverage schedule2.c -o schedule2.exe 
+./schedule2.exe 6 2 0  < ../../inputs/input/zt.6 > ../../schedule2_mutant_outputs/$1/t2656
+gcov -c schedule2.c 
+mv *.c.gcov ../../schedule2_gcov/$1/t2656 
+rm schedule2.gcda schedule2.gcno schedule2.exe 
+echo ">>>>>>>>running test 2657"
+mkdir ../../schedule2_gcov/$1/t2657 
+gcc -w -fprofile-arcs -ftest-coverage schedule2.c -o schedule2.exe 
+./schedule2.exe 2 0 1  < ../../inputs/input/zt.7 > ../../schedule2_mutant_outputs/$1/t2657
+gcov -c schedule2.c 
+mv *.c.gcov ../../schedule2_gcov/$1/t2657 
+rm schedule2.gcda schedule2.gcno schedule2.exe 
+echo ">>>>>>>>running test 2658"
+mkdir ../../schedule2_gcov/$1/t2658 
+gcc -w -fprofile-arcs -ftest-coverage schedule2.c -o schedule2.exe 
+./schedule2.exe 2 1 3  < ../../inputs/input/zt.8 > ../../schedule2_mutant_outputs/$1/t2658
+gcov -c schedule2.c 
+mv *.c.gcov ../../schedule2_gcov/$1/t2658 
+rm schedule2.gcda schedule2.gcno schedule2.exe 
+echo ">>>>>>>>running test 2659"
+mkdir ../../schedule2_gcov/$1/t2659 
+gcc -w -fprofile-arcs -ftest-coverage schedule2.c -o schedule2.exe 
+./schedule2.exe 2 1 0  < ../../inputs/input/zt.9 > ../../schedule2_mutant_outputs/$1/t2659
+gcov -c schedule2.c 
+mv *.c.gcov ../../schedule2_gcov/$1/t2659 
+rm schedule2.gcda schedule2.gcno schedule2.exe 
+echo ">>>>>>>>running test 2660"
+mkdir ../../schedule2_gcov/$1/t2660 
+gcc -w -fprofile-arcs -ftest-coverage schedule2.c -o schedule2.exe 
+./schedule2.exe 1 0 3  < ../../inputs/input/zt.10 > ../../schedule2_mutant_outputs/$1/t2660
+gcov -c schedule2.c 
+mv *.c.gcov ../../schedule2_gcov/$1/t2660 
+rm schedule2.gcda schedule2.gcno schedule2.exe 
+echo ">>>>>>>>running test 2661"
+mkdir ../../schedule2_gcov/$1/t2661 
+gcc -w -fprofile-arcs -ftest-coverage schedule2.c -o schedule2.exe 
+./schedule2.exe 1 3 1  < ../../inputs/input/zt.11 > ../../schedule2_mutant_outputs/$1/t2661
+gcov -c schedule2.c 
+mv *.c.gcov ../../schedule2_gcov/$1/t2661 
+rm schedule2.gcda schedule2.gcno schedule2.exe 
+echo ">>>>>>>>running test 2662"
+mkdir ../../schedule2_gcov/$1/t2662 
+gcc -w -fprofile-arcs -ftest-coverage schedule2.c -o schedule2.exe 
+./schedule2.exe 5 2 9  < ../../inputs/input/zt.12 > ../../schedule2_mutant_outputs/$1/t2662
+gcov -c schedule2.c 
+mv *.c.gcov ../../schedule2_gcov/$1/t2662 
+rm schedule2.gcda schedule2.gcno schedule2.exe 
+echo ">>>>>>>>running test 2663"
+mkdir ../../schedule2_gcov/$1/t2663 
+gcc -w -fprofile-arcs -ftest-coverage schedule2.c -o schedule2.exe 
+./schedule2.exe 0 1 2  < ../../inputs/input/zt.13 > ../../schedule2_mutant_outputs/$1/t2663
+gcov -c schedule2.c 
+mv *.c.gcov ../../schedule2_gcov/$1/t2663 
+rm schedule2.gcda schedule2.gcno schedule2.exe 
+echo ">>>>>>>>running test 2664"
+mkdir ../../schedule2_gcov/$1/t2664 
+gcc -w -fprofile-arcs -ftest-coverage schedule2.c -o schedule2.exe 
+./schedule2.exe 7 1 3  < ../../inputs/input/zt.14 > ../../schedule2_mutant_outputs/$1/t2664
+gcov -c schedule2.c 
+mv *.c.gcov ../../schedule2_gcov/$1/t2664 
+rm schedule2.gcda schedule2.gcno schedule2.exe 
+echo ">>>>>>>>running test 2665"
+mkdir ../../schedule2_gcov/$1/t2665 
+gcc -w -fprofile-arcs -ftest-coverage schedule2.c -o schedule2.exe 
+./schedule2.exe 0 1 3  < ../../inputs/input/zt.15 > ../../schedule2_mutant_outputs/$1/t2665
+gcov -c schedule2.c 
+mv *.c.gcov ../../schedule2_gcov/$1/t2665 
+rm schedule2.gcda schedule2.gcno schedule2.exe 
+echo ">>>>>>>>running test 2666"
+mkdir ../../schedule2_gcov/$1/t2666 
+gcc -w -fprofile-arcs -ftest-coverage schedule2.c -o schedule2.exe 
+./schedule2.exe 1 3 1  < ../../inputs/input/zt.16 > ../../schedule2_mutant_outputs/$1/t2666
+gcov -c schedule2.c 
+mv *.c.gcov ../../schedule2_gcov/$1/t2666 
+rm schedule2.gcda schedule2.gcno schedule2.exe 
+echo ">>>>>>>>running test 2667"
+mkdir ../../schedule2_gcov/$1/t2667 
+gcc -w -fprofile-arcs -ftest-coverage schedule2.c -o schedule2.exe 
+./schedule2.exe 3 0 4  < ../../inputs/input/zt.17 > ../../schedule2_mutant_outputs/$1/t2667
+gcov -c schedule2.c 
+mv *.c.gcov ../../schedule2_gcov/$1/t2667 
+rm schedule2.gcda schedule2.gcno schedule2.exe 
+echo ">>>>>>>>running test 2668"
+mkdir ../../schedule2_gcov/$1/t2668 
+gcc -w -fprofile-arcs -ftest-coverage schedule2.c -o schedule2.exe 
+./schedule2.exe 2 1 3  < ../../inputs/input/zt.18 > ../../schedule2_mutant_outputs/$1/t2668
+gcov -c schedule2.c 
+mv *.c.gcov ../../schedule2_gcov/$1/t2668 
+rm schedule2.gcda schedule2.gcno schedule2.exe 
+echo ">>>>>>>>running test 2669"
+mkdir ../../schedule2_gcov/$1/t2669 
+gcc -w -fprofile-arcs -ftest-coverage schedule2.c -o schedule2.exe 
+./schedule2.exe 8 2 3  < ../../inputs/input/zt.19 > ../../schedule2_mutant_outputs/$1/t2669
+gcov -c schedule2.c 
+mv *.c.gcov ../../schedule2_gcov/$1/t2669 
+rm schedule2.gcda schedule2.gcno schedule2.exe 
+echo ">>>>>>>>running test 2670"
+mkdir ../../schedule2_gcov/$1/t2670 
+gcc -w -fprofile-arcs -ftest-coverage schedule2.c -o schedule2.exe 
+./schedule2.exe 2 3 1  < ../../inputs/input/zt.20 > ../../schedule2_mutant_outputs/$1/t2670
+gcov -c schedule2.c 
+mv *.c.gcov ../../schedule2_gcov/$1/t2670 
+rm schedule2.gcda schedule2.gcno schedule2.exe 
+echo ">>>>>>>>running test 2671"
+mkdir ../../schedule2_gcov/$1/t2671 
+gcc -w -fprofile-arcs -ftest-coverage schedule2.c -o schedule2.exe 
+./schedule2.exe 1 0 3  < ../../inputs/input/zt.21 > ../../schedule2_mutant_outputs/$1/t2671
+gcov -c schedule2.c 
+mv *.c.gcov ../../schedule2_gcov/$1/t2671 
+rm schedule2.gcda schedule2.gcno schedule2.exe 
+echo ">>>>>>>>running test 2672"
+mkdir ../../schedule2_gcov/$1/t2672 
+gcc -w -fprofile-arcs -ftest-coverage schedule2.c -o schedule2.exe 
+./schedule2.exe 0 1 3  < ../../inputs/input/zt.22 > ../../schedule2_mutant_outputs/$1/t2672
+gcov -c schedule2.c 
+mv *.c.gcov ../../schedule2_gcov/$1/t2672 
+rm schedule2.gcda schedule2.gcno schedule2.exe 
+echo ">>>>>>>>running test 2673"
+mkdir ../../schedule2_gcov/$1/t2673 
+gcc -w -fprofile-arcs -ftest-coverage schedule2.c -o schedule2.exe 
+./schedule2.exe 0 3 4  < ../../inputs/input/zt.23 > ../../schedule2_mutant_outputs/$1/t2673
+gcov -c schedule2.c 
+mv *.c.gcov ../../schedule2_gcov/$1/t2673 
+rm schedule2.gcda schedule2.gcno schedule2.exe 
+echo ">>>>>>>>running test 2674"
+mkdir ../../schedule2_gcov/$1/t2674 
+gcc -w -fprofile-arcs -ftest-coverage schedule2.c -o schedule2.exe 
+./schedule2.exe 0 0 0  < ../../inputs/input/zt.24 > ../../schedule2_mutant_outputs/$1/t2674
+gcov -c schedule2.c 
+mv *.c.gcov ../../schedule2_gcov/$1/t2674 
+rm schedule2.gcda schedule2.gcno schedule2.exe 
+echo ">>>>>>>>running test 2675"
+mkdir ../../schedule2_gcov/$1/t2675 
+gcc -w -fprofile-arcs -ftest-coverage schedule2.c -o schedule2.exe 
+./schedule2.exe 1 0 0  < ../../inputs/input/zt.25 > ../../schedule2_mutant_outputs/$1/t2675
+gcov -c schedule2.c 
+mv *.c.gcov ../../schedule2_gcov/$1/t2675 
+rm schedule2.gcda schedule2.gcno schedule2.exe 
+echo ">>>>>>>>running test 2676"
+mkdir ../../schedule2_gcov/$1/t2676 
+gcc -w -fprofile-arcs -ftest-coverage schedule2.c -o schedule2.exe 
+./schedule2.exe 1 0 1  < ../../inputs/input/zt.26 > ../../schedule2_mutant_outputs/$1/t2676
+gcov -c schedule2.c 
+mv *.c.gcov ../../schedule2_gcov/$1/t2676 
+rm schedule2.gcda schedule2.gcno schedule2.exe 
+echo ">>>>>>>>running test 2677"
+mkdir ../../schedule2_gcov/$1/t2677 
+gcc -w -fprofile-arcs -ftest-coverage schedule2.c -o schedule2.exe 
+./schedule2.exe 2 3 1  < ../../inputs/input/zt.27 > ../../schedule2_mutant_outputs/$1/t2677
+gcov -c schedule2.c 
+mv *.c.gcov ../../schedule2_gcov/$1/t2677 
+rm schedule2.gcda schedule2.gcno schedule2.exe 
+echo ">>>>>>>>running test 2678"
+mkdir ../../schedule2_gcov/$1/t2678 
+gcc -w -fprofile-arcs -ftest-coverage schedule2.c -o schedule2.exe 
+./schedule2.exe 1 3 4  < ../../inputs/input/zt.28 > ../../schedule2_mutant_outputs/$1/t2678
+gcov -c schedule2.c 
+mv *.c.gcov ../../schedule2_gcov/$1/t2678 
+rm schedule2.gcda schedule2.gcno schedule2.exe 
+echo ">>>>>>>>running test 2679"
+mkdir ../../schedule2_gcov/$1/t2679 
+gcc -w -fprofile-arcs -ftest-coverage schedule2.c -o schedule2.exe 
+./schedule2.exe 0 1 3  < ../../inputs/input/zt.29 > ../../schedule2_mutant_outputs/$1/t2679
+gcov -c schedule2.c 
+mv *.c.gcov ../../schedule2_gcov/$1/t2679 
+rm schedule2.gcda schedule2.gcno schedule2.exe 
+echo ">>>>>>>>running test 2680"
+mkdir ../../schedule2_gcov/$1/t2680 
+gcc -w -fprofile-arcs -ftest-coverage schedule2.c -o schedule2.exe 
+./schedule2.exe 1 3 4  < ../../inputs/input/zt.30 > ../../schedule2_mutant_outputs/$1/t2680
+gcov -c schedule2.c 
+mv *.c.gcov ../../schedule2_gcov/$1/t2680 
+rm schedule2.gcda schedule2.gcno schedule2.exe 
+echo ">>>>>>>>running test 2681"
+mkdir ../../schedule2_gcov/$1/t2681 
+gcc -w -fprofile-arcs -ftest-coverage schedule2.c -o schedule2.exe 
+./schedule2.exe -2 4 2  < ../../inputs/input/ct.65 > ../../schedule2_mutant_outputs/$1/t2681
+gcov -c schedule2.c 
+mv *.c.gcov ../../schedule2_gcov/$1/t2681 
+rm schedule2.gcda schedule2.gcno schedule2.exe 
+echo ">>>>>>>>running test 2682"
+mkdir ../../schedule2_gcov/$1/t2682 
+gcc -w -fprofile-arcs -ftest-coverage schedule2.c -o schedule2.exe 
+./schedule2.exe 3 1 -5  < ../../inputs/input/zt.1 > ../../schedule2_mutant_outputs/$1/t2682
+gcov -c schedule2.c 
+mv *.c.gcov ../../schedule2_gcov/$1/t2682 
+rm schedule2.gcda schedule2.gcno schedule2.exe 
+echo ">>>>>>>>running test 2683"
+mkdir ../../schedule2_gcov/$1/t2683 
+gcc -w -fprofile-arcs -ftest-coverage schedule2.c -o schedule2.exe 
+./schedule2.exe 1 -2 3  < ../../inputs/input/zt.2 > ../../schedule2_mutant_outputs/$1/t2683
+gcov -c schedule2.c 
+mv *.c.gcov ../../schedule2_gcov/$1/t2683 
+rm schedule2.gcda schedule2.gcno schedule2.exe 
+echo ">>>>>>>>running test 2684"
+mkdir ../../schedule2_gcov/$1/t2684 
+gcc -w -fprofile-arcs -ftest-coverage schedule2.c -o schedule2.exe 
+./schedule2.exe -1 2 4  < ../../inputs/input/zt.3 > ../../schedule2_mutant_outputs/$1/t2684
+gcov -c schedule2.c 
+mv *.c.gcov ../../schedule2_gcov/$1/t2684 
+rm schedule2.gcda schedule2.gcno schedule2.exe 
+echo ">>>>>>>>running test 2685"
+mkdir ../../schedule2_gcov/$1/t2685 
+gcc -w -fprofile-arcs -ftest-coverage schedule2.c -o schedule2.exe 
+./schedule2.exe 2 3 -1  < ../../inputs/input/zt.4 > ../../schedule2_mutant_outputs/$1/t2685
+gcov -c schedule2.c 
+mv *.c.gcov ../../schedule2_gcov/$1/t2685 
+rm schedule2.gcda schedule2.gcno schedule2.exe 
+echo ">>>>>>>>running test 2686"
+mkdir ../../schedule2_gcov/$1/t2686 
+gcc -w -fprofile-arcs -ftest-coverage schedule2.c -o schedule2.exe 
+./schedule2.exe 0 -8 3  < ../../inputs/input/zt.5 > ../../schedule2_mutant_outputs/$1/t2686
+gcov -c schedule2.c 
+mv *.c.gcov ../../schedule2_gcov/$1/t2686 
+rm schedule2.gcda schedule2.gcno schedule2.exe 
+echo ">>>>>>>>running test 2687"
+mkdir ../../schedule2_gcov/$1/t2687 
+gcc -w -fprofile-arcs -ftest-coverage schedule2.c -o schedule2.exe 
+./schedule2.exe -6 2 0  < ../../inputs/input/zt.6 > ../../schedule2_mutant_outputs/$1/t2687
+gcov -c schedule2.c 
+mv *.c.gcov ../../schedule2_gcov/$1/t2687 
+rm schedule2.gcda schedule2.gcno schedule2.exe 
+echo ">>>>>>>>running test 2688"
+mkdir ../../schedule2_gcov/$1/t2688 
+gcc -w -fprofile-arcs -ftest-coverage schedule2.c -o schedule2.exe 
+./schedule2.exe 2 0 -1  < ../../inputs/input/zt.7 > ../../schedule2_mutant_outputs/$1/t2688
+gcov -c schedule2.c 
+mv *.c.gcov ../../schedule2_gcov/$1/t2688 
+rm schedule2.gcda schedule2.gcno schedule2.exe 
+echo ">>>>>>>>running test 2689"
+mkdir ../../schedule2_gcov/$1/t2689 
+gcc -w -fprofile-arcs -ftest-coverage schedule2.c -o schedule2.exe 
+./schedule2.exe 2 -1 3  < ../../inputs/input/zt.8 > ../../schedule2_mutant_outputs/$1/t2689
+gcov -c schedule2.c 
+mv *.c.gcov ../../schedule2_gcov/$1/t2689 
+rm schedule2.gcda schedule2.gcno schedule2.exe 
+echo ">>>>>>>>running test 2690"
+mkdir ../../schedule2_gcov/$1/t2690 
+gcc -w -fprofile-arcs -ftest-coverage schedule2.c -o schedule2.exe 
+./schedule2.exe -2 1 0  < ../../inputs/input/zt.9 > ../../schedule2_mutant_outputs/$1/t2690
+gcov -c schedule2.c 
+mv *.c.gcov ../../schedule2_gcov/$1/t2690 
+rm schedule2.gcda schedule2.gcno schedule2.exe 
+echo ">>>>>>>>running test 2691"
+mkdir ../../schedule2_gcov/$1/t2691 
+gcc -w -fprofile-arcs -ftest-coverage schedule2.c -o schedule2.exe 
+./schedule2.exe 1 0 -3  < ../../inputs/input/zt.10 > ../../schedule2_mutant_outputs/$1/t2691
+gcov -c schedule2.c 
+mv *.c.gcov ../../schedule2_gcov/$1/t2691 
+rm schedule2.gcda schedule2.gcno schedule2.exe 
+echo ">>>>>>>>running test 2692"
+mkdir ../../schedule2_gcov/$1/t2692 
+gcc -w -fprofile-arcs -ftest-coverage schedule2.c -o schedule2.exe 
+./schedule2.exe 1 -3 1  < ../../inputs/input/zt.11 > ../../schedule2_mutant_outputs/$1/t2692
+gcov -c schedule2.c 
+mv *.c.gcov ../../schedule2_gcov/$1/t2692 
+rm schedule2.gcda schedule2.gcno schedule2.exe 
+echo ">>>>>>>>running test 2693"
+mkdir ../../schedule2_gcov/$1/t2693 
+gcc -w -fprofile-arcs -ftest-coverage schedule2.c -o schedule2.exe 
+./schedule2.exe -5 2 9  < ../../inputs/input/zt.12 > ../../schedule2_mutant_outputs/$1/t2693
+gcov -c schedule2.c 
+mv *.c.gcov ../../schedule2_gcov/$1/t2693 
+rm schedule2.gcda schedule2.gcno schedule2.exe 
+echo ">>>>>>>>running test 2694"
+mkdir ../../schedule2_gcov/$1/t2694 
+gcc -w -fprofile-arcs -ftest-coverage schedule2.c -o schedule2.exe 
+./schedule2.exe 0 1 -2  < ../../inputs/input/zt.13 > ../../schedule2_mutant_outputs/$1/t2694
+gcov -c schedule2.c 
+mv *.c.gcov ../../schedule2_gcov/$1/t2694 
+rm schedule2.gcda schedule2.gcno schedule2.exe 
+echo ">>>>>>>>running test 2695"
+mkdir ../../schedule2_gcov/$1/t2695 
+gcc -w -fprofile-arcs -ftest-coverage schedule2.c -o schedule2.exe 
+./schedule2.exe 7 -1 3  < ../../inputs/input/zt.14 > ../../schedule2_mutant_outputs/$1/t2695
+gcov -c schedule2.c 
+mv *.c.gcov ../../schedule2_gcov/$1/t2695 
+rm schedule2.gcda schedule2.gcno schedule2.exe 
+echo ">>>>>>>>running test 2696"
+mkdir ../../schedule2_gcov/$1/t2696 
+gcc -w -fprofile-arcs -ftest-coverage schedule2.c -o schedule2.exe 
+./schedule2.exe -2 4 2  < ../../inputs/input/ct.65 > ../../schedule2_mutant_outputs/$1/t2696
+gcov -c schedule2.c 
+mv *.c.gcov ../../schedule2_gcov/$1/t2696 
+rm schedule2.gcda schedule2.gcno schedule2.exe 
+echo ">>>>>>>>running test 2697"
+mkdir ../../schedule2_gcov/$1/t2697 
+gcc -w -fprofile-arcs -ftest-coverage schedule2.c -o schedule2.exe 
+./schedule2.exe 3 1 -5  < ../../inputs/input/zt.1 > ../../schedule2_mutant_outputs/$1/t2697
+gcov -c schedule2.c 
+mv *.c.gcov ../../schedule2_gcov/$1/t2697 
+rm schedule2.gcda schedule2.gcno schedule2.exe 
+echo ">>>>>>>>running test 2698"
+mkdir ../../schedule2_gcov/$1/t2698 
+gcc -w -fprofile-arcs -ftest-coverage schedule2.c -o schedule2.exe 
+./schedule2.exe 1 -2 3  < ../../inputs/input/zt.2 > ../../schedule2_mutant_outputs/$1/t2698
+gcov -c schedule2.c 
+mv *.c.gcov ../../schedule2_gcov/$1/t2698 
+rm schedule2.gcda schedule2.gcno schedule2.exe 
+echo ">>>>>>>>running test 2699"
+mkdir ../../schedule2_gcov/$1/t2699 
+gcc -w -fprofile-arcs -ftest-coverage schedule2.c -o schedule2.exe 
+./schedule2.exe -1 2 4  < ../../inputs/input/zt.3 > ../../schedule2_mutant_outputs/$1/t2699
+gcov -c schedule2.c 
+mv *.c.gcov ../../schedule2_gcov/$1/t2699 
+rm schedule2.gcda schedule2.gcno schedule2.exe 
+echo ">>>>>>>>running test 2700"
+mkdir ../../schedule2_gcov/$1/t2700 
+gcc -w -fprofile-arcs -ftest-coverage schedule2.c -o schedule2.exe 
+./schedule2.exe 2 3 -1  < ../../inputs/input/zt.4 > ../../schedule2_mutant_outputs/$1/t2700
+gcov -c schedule2.c 
+mv *.c.gcov ../../schedule2_gcov/$1/t2700 
+rm schedule2.gcda schedule2.gcno schedule2.exe 
+echo ">>>>>>>>running test 2701"
+mkdir ../../schedule2_gcov/$1/t2701 
+gcc -w -fprofile-arcs -ftest-coverage schedule2.c -o schedule2.exe 
+./schedule2.exe 0 -8 3  < ../../inputs/input/zt.5 > ../../schedule2_mutant_outputs/$1/t2701
+gcov -c schedule2.c 
+mv *.c.gcov ../../schedule2_gcov/$1/t2701 
+rm schedule2.gcda schedule2.gcno schedule2.exe 
+echo ">>>>>>>>running test 2702"
+mkdir ../../schedule2_gcov/$1/t2702 
+gcc -w -fprofile-arcs -ftest-coverage schedule2.c -o schedule2.exe 
+./schedule2.exe -6 2 0  < ../../inputs/input/zt.6 > ../../schedule2_mutant_outputs/$1/t2702
+gcov -c schedule2.c 
+mv *.c.gcov ../../schedule2_gcov/$1/t2702 
+rm schedule2.gcda schedule2.gcno schedule2.exe 
+echo ">>>>>>>>running test 2703"
+mkdir ../../schedule2_gcov/$1/t2703 
+gcc -w -fprofile-arcs -ftest-coverage schedule2.c -o schedule2.exe 
+./schedule2.exe 2 0 -1  < ../../inputs/input/zt.7 > ../../schedule2_mutant_outputs/$1/t2703
+gcov -c schedule2.c 
+mv *.c.gcov ../../schedule2_gcov/$1/t2703 
+rm schedule2.gcda schedule2.gcno schedule2.exe 
+echo ">>>>>>>>running test 2704"
+mkdir ../../schedule2_gcov/$1/t2704 
+gcc -w -fprofile-arcs -ftest-coverage schedule2.c -o schedule2.exe 
+./schedule2.exe 2 -1 3  < ../../inputs/input/zt.8 > ../../schedule2_mutant_outputs/$1/t2704
+gcov -c schedule2.c 
+mv *.c.gcov ../../schedule2_gcov/$1/t2704 
+rm schedule2.gcda schedule2.gcno schedule2.exe 
+echo ">>>>>>>>running test 2705"
+mkdir ../../schedule2_gcov/$1/t2705 
+gcc -w -fprofile-arcs -ftest-coverage schedule2.c -o schedule2.exe 
+./schedule2.exe -2 1 0  < ../../inputs/input/zt.9 > ../../schedule2_mutant_outputs/$1/t2705
+gcov -c schedule2.c 
+mv *.c.gcov ../../schedule2_gcov/$1/t2705 
+rm schedule2.gcda schedule2.gcno schedule2.exe 
+echo ">>>>>>>>running test 2706"
+mkdir ../../schedule2_gcov/$1/t2706 
+gcc -w -fprofile-arcs -ftest-coverage schedule2.c -o schedule2.exe 
+./schedule2.exe 1 0 -3  < ../../inputs/input/zt.10 > ../../schedule2_mutant_outputs/$1/t2706
+gcov -c schedule2.c 
+mv *.c.gcov ../../schedule2_gcov/$1/t2706 
+rm schedule2.gcda schedule2.gcno schedule2.exe 
+echo ">>>>>>>>running test 2707"
+mkdir ../../schedule2_gcov/$1/t2707 
+gcc -w -fprofile-arcs -ftest-coverage schedule2.c -o schedule2.exe 
+./schedule2.exe 1 -3 1  < ../../inputs/input/zt.11 > ../../schedule2_mutant_outputs/$1/t2707
+gcov -c schedule2.c 
+mv *.c.gcov ../../schedule2_gcov/$1/t2707 
+rm schedule2.gcda schedule2.gcno schedule2.exe 
+echo ">>>>>>>>running test 2708"
+mkdir ../../schedule2_gcov/$1/t2708 
+gcc -w -fprofile-arcs -ftest-coverage schedule2.c -o schedule2.exe 
+./schedule2.exe -5 2 9  < ../../inputs/input/zt.12 > ../../schedule2_mutant_outputs/$1/t2708
+gcov -c schedule2.c 
+mv *.c.gcov ../../schedule2_gcov/$1/t2708 
+rm schedule2.gcda schedule2.gcno schedule2.exe 
+echo ">>>>>>>>running test 2709"
+mkdir ../../schedule2_gcov/$1/t2709 
+gcc -w -fprofile-arcs -ftest-coverage schedule2.c -o schedule2.exe 
+./schedule2.exe 0 1 -2  < ../../inputs/input/zt.13 > ../../schedule2_mutant_outputs/$1/t2709
+gcov -c schedule2.c 
+mv *.c.gcov ../../schedule2_gcov/$1/t2709 
+rm schedule2.gcda schedule2.gcno schedule2.exe 
+echo ">>>>>>>>running test 2710"
+mkdir ../../schedule2_gcov/$1/t2710 
+gcc -w -fprofile-arcs -ftest-coverage schedule2.c -o schedule2.exe 
+./schedule2.exe 7 -1 3  < ../../inputs/input/zt.14 > ../../schedule2_mutant_outputs/$1/t2710
+gcov -c schedule2.c 
+mv *.c.gcov ../../schedule2_gcov/$1/t2710 
+rm schedule2.gcda schedule2.gcno schedule2.exe 
