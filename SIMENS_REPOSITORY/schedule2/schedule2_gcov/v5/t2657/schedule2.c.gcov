@@ -1,0 +1,312 @@
+        -:    0:Source:schedule2.c
+        -:    0:Graph:schedule2.gcno
+        -:    0:Data:schedule2.gcda
+        -:    0:Runs:1
+        -:    1:
+        -:    2:/* $Log: schedule.c,v $
+        -:    3: * Revision 1.4  1993/05/04  12:23:58  foster
+        -:    4: * Debug stuff removed
+        -:    5: *
+        -:    6: * Revision 1.3  1993/05/03  20:27:04  foster
+        -:    7: * Full Functionality
+        -:    8: *
+        -:    9: * Revision 1.2  1993/05/03  15:41:01  foster
+        -:   10: * Restructure functions
+        -:   11: *
+        -:   12: * Revision 1.1  1993/05/01  11:38:04  foster
+        -:   13: * Initial revision
+        -:   14: * */
+        -:   15:
+        -:   16:#include <stdio.h>
+        -:   17:#include "schedule2.h"
+        -:   18:
+        -:   19:static struct process * current_job;
+        -:   20:static int next_pid = 0;
+        -:   21:
+        -:   22:int
+       18:   23:enqueue(prio, new_process)
+        -:   24:     int prio;
+        -:   25:     struct process *new_process;
+        -:   26:{
+        -:   27:    int status;
+      18*:   28:    if(status = put_end(prio, new_process)) return(status); /* Error */
+       18:   29:    return(reschedule(prio));
+        -:   30:}
+        -:   31:
+        -:   32:struct queue
+        -:   33:{
+        -:   34:    int length;
+        -:   35:    struct process *head;
+        -:   36:};
+        -:   37:
+        -:   38:static struct queue prio_queue[MAXPRIO + 1]; /* blocked queue is [0] */
+        -:   39:
+        -:   40:
+        -:   41:
+        1:   42:main(argc, argv) /* n3, n2, n1 : # of processes at prio3 ... */
+        -:   43:int argc;
+        -:   44:char *argv[];
+        -:   45:{
+        -:   46:    int command, prio;
+        -:   47:    float ratio;
+        -:   48:    int nprocs, status, pid;
+        -:   49:    struct process *process;
+       1*:   50:    if(argc != MAXPRIO + 1) exit_here(BADNOARGS);
+        4:   51:    for(prio = MAXPRIO; prio > 0; prio--)
+        -:   52:    {
+       3*:   53:	if((nprocs = atoi(argv[MAXPRIO + 1 - prio])) < 0) exit_here(BADARG);
+        6:   54:	for(; nprocs > 0; nprocs--)
+        -:   55:	{
+       3*:   56:	    if(status = new_job(prio)) exit_here(status);
+        -:   57:	}
+        -:   58:    }
+        -:   59:    /* while there are commands, schedule it */
+      124:   60:    while((status = get_command(&command, &prio, &ratio)) > 0)
+        -:   61:    {
+      123:   62:	schedule(command, prio, ratio);
+        -:   63:    }
+       1*:   64:    if(status < 0) exit_here(status); /* Real bad error */
+        1:   65:    exit_here(OK);
+        -:   66:}
+        -:   67:
+        -:   68:int 
+      124:   69:get_command(command, prio, ratio)
+        -:   70:    int *command, *prio;
+        -:   71:    float *ratio;
+        -:   72:{
+      124:   73:    int status = OK;
+        -:   74:    char buf[CMDSIZE];
+      124:   75:    if(fgets(buf, CMDSIZE, stdin))
+        -:   76:    {
+      123:   77:	*prio = *command = -1; *ratio =-1.0;
+      123:   78:	sscanf(buf, "%d", command);
+      123:   79:	switch(*command)
+        -:   80:	{
+       10:   81:	  case NEW_JOB :
+       10:   82:	    sscanf(buf, "%*s%d", prio);
+       10:   83:	    break;
+       18:   84:	  case UNBLOCK :
+       18:   85:	    sscanf(buf, "%*s%f", ratio);
+       18:   86:	    break;
+        7:   87:	  case UPGRADE_PRIO :
+        7:   88:	    sscanf(buf, "%*s%d%f", prio, ratio);
+        7:   89:	    break;
+        -:   90:	}
+        -:   91:	 /* Find end of  line of input if no EOF */
+     123*:   92:	while(buf[strlen(buf)-1] != '\n' && fgets(buf, CMDSIZE, stdin));
+      123:   93:	return(TRUE);
+        -:   94:    }
+        1:   95:    else return(FALSE);
+        -:   96:}
+        -:   97:
+        1:   98:exit_here(status)
+        -:   99:     int status;
+        -:  100:{
+        1:  101:    exit(abs(status));
+        -:  102:}
+        -:  103:
+        -:  104:
+        -:  105:int 
+       13:  106:new_job(prio) /* allocate new pid and process block. Stick at end */
+        -:  107:     int prio;
+        -:  108:{
+       13:  109:    int pid, status = OK;
+        -:  110:    struct process *new_process;
+      13*:  111:    if(prio < 1) return(BADPRIO); /* Mustn't allow 0 */
+       13:  112:    pid = next_pid++;
+       13:  113:    new_process = (struct process *) malloc(sizeof(struct process));
+      13*:  114:    if(!new_process) status = MALLOC_ERR;
+        -:  115:    else
+        -:  116:    {
+       13:  117:	new_process->pid = pid;
+       13:  118:	new_process->priority = prio;
+       13:  119:	new_process->next = (struct process *) 0;
+       13:  120:	status = enqueue(prio, new_process);
+       13:  121:	if(status)
+        -:  122:	{
+    #####:  123:	    free(new_process); /* Return process block */
+        -:  124:	}
+        -:  125:    }
+      13*:  126:    if(status) next_pid--; /* Unsuccess. Restore pid */
+       13:  127:    return(status);
+        -:  128:}
+        -:  129:
+        7:  130:int upgrade_prio(prio, ratio) /* increment priority at ratio in queue */
+        -:  131:     int prio;
+        -:  132:     float ratio;
+        -:  133:{
+        -:  134:    int status;
+        -:  135:    struct process * job;
+        7:  136:    if(prio < 1 || prio > MAXLOPRIO) return(BADPRIO);
+        4:  137:    if((status = get_process(prio, ratio, &job)) <= 0) return(status);
+        -:  138:    /* We found a job in that queue. Upgrade it */
+    #####:  139:    job->priority = prio + 1;
+    #####:  140:    return(enqueue(prio + 1, job));
+        -:  141:}
+        -:  142:
+        -:  143:int
+       13:  144:block() /* Put current job in blocked queue */
+        -:  145:{
+        -:  146:    struct process * job;
+       13:  147:    job = get_current();
+       13:  148:    if(job)
+        -:  149:    {
+        1:  150:	current_job = (struct process *)0; /* remove it */
+        1:  151:	return(enqueue(BLOCKPRIO, job)); /* put into blocked queue */
+        -:  152:    }
+       12:  153:    return(OK);
+        -:  154:}
+        -:  155:
+        -:  156:int
+       18:  157:unblock(ratio) /* Restore job @ ratio in blocked queue to its queue */
+        -:  158:     float ratio;
+        -:  159:{
+        -:  160:    int status;
+        -:  161:    struct process * job;
+       18:  162:    if((status = get_process(BLOCKPRIO, ratio, &job)) <= 0) return(status);
+        -:  163:    /* We found a blocked process. Put it where it belongs. */
+        1:  164:    return(enqueue(job->priority, job));
+        -:  165:}
+        -:  166:
+        -:  167:int
+       15:  168:quantum_expire() /* put current job at end of its queue */
+        -:  169:{
+        -:  170:    struct process * job;
+       15:  171:    job = get_current();
+       15:  172:    if(job)
+        -:  173:    {
+        3:  174:	current_job = (struct process *)0; /* remove it */
+        3:  175:	return(enqueue(job->priority, job));
+        -:  176:    }
+       12:  177:    return(OK);
+        -:  178:}
+        -:  179:
+        -:  180:int
+       47:  181:finish() /* Get current job, print it, and zap it. */
+        -:  182:{
+        -:  183:    struct process * job;
+       47:  184:    job = get_current();
+       47:  185:    if(job)
+        -:  186:    {
+       11:  187:	current_job = (struct process *)0;
+       11:  188:	reschedule(0);
+       11:  189:	fprintf(stdout, " %d", job->pid);
+       11:  190:	free(job);
+       11:  191:	return(FALSE);
+        -:  192:    }
+       36:  193:    else return(TRUE);
+        -:  194:}
+        -:  195:
+        -:  196:int
+       24:  197:flush() /* Get all jobs in priority queues & zap them */
+        -:  198:{
+       30:  199:    while(!finish());
+       24:  200:    fprintf(stdout, "\n");
+       24:  201:    return(OK);
+        -:  202:}
+        -:  203:
+        -:  204:struct process * 
+      104:  205:get_current() /* If no current process, get it. Return it */
+        -:  206:{
+        -:  207:    int prio;
+      104:  208:    if(!current_job)
+        -:  209:    {
+      304:  210:	for(prio = MAXPRIO; prio > 0; prio--)
+        -:  211:	{ /* find head of highest queue with a process */
+      236:  212:	    if(get_process(prio, 0.0, &current_job) > 0) break;
+        -:  213:	}
+        -:  214:    }
+      104:  215:    return(current_job);
+        -:  216:}
+        -:  217:
+        -:  218:int
+       29:  219:reschedule(prio) /* Put highest priority job into current_job */
+        -:  220:     int prio;
+        -:  221:{
+       29:  222:    if(current_job && prio > current_job->priority)
+        -:  223:    {
+        1:  224:	put_end(current_job->priority, current_job);
+        1:  225:	current_job = (struct process *)0;
+        -:  226:    }
+       29:  227:    get_current(); /* Reschedule */
+       29:  228:    return(OK);
+        -:  229:}
+        -:  230:
+        -:  231:int 
+      123:  232:schedule(command, prio, ratio)
+        -:  233:    int command, prio;
+        -:  234:    float ratio;
+        -:  235:{
+      123:  236:    int status = OK;
+      123:  237:    switch(command)
+        -:  238:    {
+       10:  239:      case NEW_JOB :
+       10:  240:        status = new_job(prio);
+       10:  241:	break;
+       15:  242:      case QUANTUM_EXPIRE :
+       15:  243:        status = quantum_expire();
+       15:  244:	break;
+        7:  245:      case UPGRADE_PRIO :
+        7:  246:        status = upgrade_prio(prio, ratio);
+        7:  247:	break;
+       13:  248:      case BLOCK :
+       13:  249:        status = block();
+       13:  250:	break;
+       18:  251:      case UNBLOCK :
+       18:  252:        status = unblock(ratio);
+       18:  253:	break;
+       17:  254:      case FINISH :
+       17:  255:        finish();
+       17:  256:	fprintf(stdout, "\n");
+       17:  257:	break;
+       24:  258:      case FLUSH :
+       24:  259:        status = flush();
+       24:  260:	break;
+       19:  261:      default:
+       19:  262:	status = NO_COMMAND;
+        -:  263:    }
+      123:  264:    return(status);
+        -:  265:}
+        -:  266:
+        -:  267:
+        -:  268:
+        -:  269:
+        -:  270:int 
+       19:  271:put_end(prio, process) /* Put process at end of queue */
+        -:  272:     int prio;
+        -:  273:     struct process *process;
+        -:  274:{
+        -:  275:    struct process **next;
+      19*:  276:    if(prio > MAXPRIO || prio < 0) return(BADPRIO); /* Somebody goofed */
+        -:  277:     /* find end of queue */
+      19*:  278:    for(next = &prio_queue[prio].head; *next; next = &(*next)->next);
+       19:  279:    *next = process;
+       19:  280:    prio_queue[prio].length++;
+       19:  281:    return(OK);
+        -:  282:}
+        -:  283:
+        -:  284:int 
+      258:  285:get_process(prio, ratio, job)
+        -:  286:     int prio;
+        -:  287:     float ratio;
+        -:  288:     struct process ** job;
+        -:  289:{
+        -:  290:    int length, index;
+        -:  291:    struct process **next;
+     258*:  292:    if(prio > MAXPRIO || prio < 0) return(BADPRIO); /* Somebody goofed */
+     258*:  293:    if(ratio < 0.0 || ratio > 1.0) return(BADRATIO); /* Somebody else goofed */
+      258:  294:    length = prio_queue[prio].length;
+      258:  295:    index = ratio * length;
+      258:  296:    index = index >= length ? length -1 : index; /* If ratio == 1.0 */
+     258*:  297:    for(next = &prio_queue[prio].head; index && *next; index--)
+    #####:  298:        next = &(*next)->next; /* Count up to it */
+      258:  299:    *job = *next;
+      258:  300:    if(*job)
+        -:  301:    {
+       18:  302:	*next = (*next)->next; /* Mend the chain */
+       18:  303:	(*job)->next = (struct process *) 0; /* break this link */
+       18:  304:	prio_queue[prio].length--;
+       18:  305:	return(TRUE);
+        -:  306:    }
+      240:  307:    else return(FALSE);
+        -:  308:}
