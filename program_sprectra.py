@@ -10,7 +10,7 @@ def get_test_results(mutant_output_folder, oracle_output_folder):
     mutants = os.listdir(mutant_output_folder)
     # create a list to store the number of failed and passed test cases for each mutant
     test_results = []
-
+    k=0
 
     ########################### change to len(mutanats)
     for i in range(len(mutants)):
@@ -45,7 +45,8 @@ def print_result_passed(final_result, mutant_count, test_count):
 
 
 mutant_count = 1
-test_count = len(os.listdir(problem_folder + '_test_suite'))
+# test_count = len(os.listdir(problem_folder + '_test_suite'))
+test_count= 2650
 
 # print_result_passed(test_execution_result, mutant_count, test_count)
 test_execution_result = get_test_results(problem_folder + '_mutant_output', problem_folder + '_oracle_output')

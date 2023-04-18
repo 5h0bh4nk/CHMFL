@@ -21,6 +21,7 @@ mutant_folders = glob.glob(mutant_folder+'/*')
 testsuite_folder = problem_folder + '_test_suite/'
 test_suite_files = os.listdir(testsuite_folder)
 
+# print(len(mutant_folders)+1)
 
 # for problems in os.listdir(root_folder):
 #     problem_folder = problems+"/"
