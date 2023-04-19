@@ -46,7 +46,7 @@ def print_result_passed(final_result, mutant_count, test_count):
 
 mutant_count = 1
 # test_count = len(os.listdir(problem_folder + '_test_suite'))
-test_count= 2650
+test_count= 1026
 
 # print_result_passed(test_execution_result, mutant_count, test_count)
 test_execution_result = get_test_results(problem_folder + '_mutant_output', problem_folder + '_oracle_output')
