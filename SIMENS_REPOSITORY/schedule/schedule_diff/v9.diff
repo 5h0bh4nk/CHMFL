@@ -1,0 +1,4 @@
+314c314
+<     if (argc < (MAXPRIO+1))
+---
+>     if (argc < (MAXPRIO))

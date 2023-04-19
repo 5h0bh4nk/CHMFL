@@ -1,0 +1,4 @@
+209a210
+> 	if(ratio == 1.0) n--; /* Correct original */
+231a233
+> 	if(ratio == 1.0) n--; /* Correct original */

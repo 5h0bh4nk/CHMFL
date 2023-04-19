@@ -1,0 +1,4 @@
+233c233
+< 			if ( Abs( gold ) < EPS * Abs( g ) )
+---
+> 			if ( Abs( gold ) < Abs( g ) )

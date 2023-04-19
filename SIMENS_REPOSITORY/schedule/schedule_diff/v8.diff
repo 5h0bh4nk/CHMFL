@@ -1,0 +1,6 @@
+213,214c213,214
+< 	    /* append to appropriate prio queue */
+< 	    proc->priority = prio;
+---
+> 	    /* append to appropriate prio queue 
+> 	    proc->priority = prio; */

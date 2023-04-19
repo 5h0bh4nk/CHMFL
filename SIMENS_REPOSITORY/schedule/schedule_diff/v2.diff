@@ -1,0 +1,6 @@
+230,231c230,231
+< 	count = block_queue->mem_count;
+< 	n = (int) (count*ratio + 1);
+---
+> 	count = block_queue->mem_count + 1;
+> 	n = (int) (count*ratio); /* change in where +1 was added - logic change */

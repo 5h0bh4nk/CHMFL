@@ -1,0 +1,4 @@
+105c105
+<     for (i=1; f_ele && (i<n); i++)
+---
+>     for (i=1; f_list && (i<n); i++) /* operand mutation */

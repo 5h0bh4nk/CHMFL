@@ -1,0 +1,4 @@
+378c378
+< 		if ( pi > 0.0 )
+---
+> 		if ( pi >= 0.0 ) /* added an = after > */

@@ -1,0 +1,4 @@
+177c177
+< 	return -tmp + log( 2.50662827465 * ser );
+---
+> 	return -tmp + log( 2.50663 * ser );

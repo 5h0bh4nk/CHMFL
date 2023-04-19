@@ -1,0 +1,4 @@
+75c75
+< 		if ( r * c > MAXTBL )
+---
+> 		if ( r * c > MAXTBL-10)

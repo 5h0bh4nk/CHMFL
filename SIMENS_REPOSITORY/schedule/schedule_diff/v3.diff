@@ -1,0 +1,4 @@
+209c209
+< 	n = (int) (count*ratio + 1);
+---
+> 	n = (int) (count*ratio + 1.1); /* constant mutation */

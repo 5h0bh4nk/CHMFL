@@ -18,8 +18,8 @@ locs ={
 
 root_folder = 'SIMENS_REPOSITORY/'
 
-problem = 'tcas/'
-problem_name = 'tcas'
+problem = 'tot_info/'
+problem_name = 'tot_info'
 
 problem_folder = root_folder+problem+problem_name
 

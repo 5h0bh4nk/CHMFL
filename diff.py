@@ -36,7 +36,9 @@ def difference(problem_folder,problem_name,problem,error):
         version_diff_file=f"{problem_folder}_diff/v{version_no}.diff"
 
         diff_file=open(version_diff_file,'r')
-        diff_line_no = int(diff_file.readline().split('c')[0])
+        if(os.path.getsize(version_diff_file) == 0):
+            continue
+        diff_line_no = int(diff_file.readline().split('c')[0].split('d')[0].split('a')[0].split(',')[0])
         diff_file.close()
 
         score_file = open(cmh_score_file,'r')
@@ -82,7 +84,7 @@ def graph_plot():
         val+=df.values[i, 1]/df.values[i, 2]
 
 
-    df1 = ps.read_csv(f'./others/dstar_best.csv')
+    df1 = ps.read_csv(f'./others/dstar.csv')
     # df.sort_values(df.columns[1],axis=0,inplace=True)
 
     # # cummulative value of x
@@ -154,9 +156,9 @@ def compare(opposite):
 
 
 # difference(problem_folder,problem_name,problem,5)
-# plot("final_output")
-# graph_plot()
+plot("final_output")
+graph_plot()
 
-compare("dstar")
-compare("zoltar")
-compare("barinel")
+# compare("dstar")
+# compare("zoltar")
+# compare("barinel")

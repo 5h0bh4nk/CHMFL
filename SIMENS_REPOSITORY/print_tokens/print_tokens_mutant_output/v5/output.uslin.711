@@ -1,0 +1,21 @@
+character,	"F".
+numeric,	36.
+error,	""e".
+identifier,	"Bpx".
+comma.
+identifier,	"qP".
+character,	"F".
+error,	"3pF".
+quote.
+identifier,	"Vmj".
+quote.
+identifier,	"R".
+error,	"+".
+identifier,	"wi".
+error,	"=".
+error,	":".
+identifier,	"r26u".
+character,	"; ]".
+comma.
+lparen.
+eof.

@@ -1,0 +1,4 @@
+215c215
+< 	for ( n = 1; n <= ITMAX; ++n )
+---
+> 	for ( n = 0; n <= ITMAX; ++n )

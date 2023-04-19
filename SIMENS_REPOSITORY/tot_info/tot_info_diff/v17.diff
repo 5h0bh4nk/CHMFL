@@ -1,0 +1,4 @@
+223c223
+< 		anf = an * fac;
+---
+> 		anf = an - fac;

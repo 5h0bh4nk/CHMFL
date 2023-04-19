@@ -1,0 +1,4 @@
+251c251
+<                            token_ind=next_st=0;
+---
+>                            /* missing code token_ind= */ next_st=0;

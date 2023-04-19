@@ -1,0 +1,4 @@
+18c18
+< #define	MAXLINE	256
+---
+> #define	MAXLINE	26

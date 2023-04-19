@@ -1,0 +1,4 @@
+279c279
+< 		if(token_ind >= 80) break; /* Added protection - hf */
+---
+> 		if(token_ind >= 10) break; /* Added protection - hf */

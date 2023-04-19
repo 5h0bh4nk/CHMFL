@@ -1,0 +1,4 @@
+343c343
+< 				goto ret1;
+---
+> /* 				goto ret1; missing code */

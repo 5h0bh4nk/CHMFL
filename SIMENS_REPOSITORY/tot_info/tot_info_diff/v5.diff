@@ -1,0 +1,4 @@
+105c105
+< 			totinfo += info;
+---
+> 			totinfo = info; /* removed + before = */

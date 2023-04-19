@@ -1,0 +1,4 @@
+198c198
+< 		sum += del *= x / ++ap;
+---
+> 		sum = del *= x / ++ap;

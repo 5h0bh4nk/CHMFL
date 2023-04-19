@@ -1,0 +1,4 @@
+22c22
+< #define	MAXTBL	1000
+---
+> #define	MAXTBL	5000  

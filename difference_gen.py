@@ -6,7 +6,7 @@ import subprocess
 from config import *
 
 # all_problem_files = os.listdir(root_folder)
-all_problem_files = ['print_tokens2']
+all_problem_files = [problem_name]
 
 
 for problem_name in all_problem_files:

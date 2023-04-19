@@ -1,0 +1,14 @@
+224c224,225
+<                  case 16 : ch=get_char(tstream_ptr->ch_stream);
+---
+>                  case 16 :
+>                  case 32 : ch=get_char(tstream_ptr->ch_stream);
+240,241c241
+<                  case 25 :
+<                  case 32 : token_ptr->token_id=special(next_st);
+---
+>                  case 25 : token_ptr->token_id=special(next_st);
+365a366
+>           case 32: return(EQUALGREATER);
+393d393
+<          case 32: return(EQUALGREATER);
