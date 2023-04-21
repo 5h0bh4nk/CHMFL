@@ -155,9 +155,9 @@ def compare(opposite):
     plt.show()
 
 
-# difference(problem_folder,problem_name,problem,5)
-plot("final_output")
-graph_plot()
+difference(problem_folder,problem_name,problem,2)
+# plot("final_output")
+# graph_plot()
 
 # compare("dstar")
 # compare("zoltar")

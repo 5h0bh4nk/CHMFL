@@ -1,0 +1,4 @@
+187c187
+< 	reschedule(0);
+---
+> 	get_current();

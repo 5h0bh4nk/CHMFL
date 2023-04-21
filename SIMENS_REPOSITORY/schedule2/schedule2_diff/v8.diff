@@ -1,0 +1,4 @@
+275c275
+<     if(prio > MAXPRIO || prio < 0) return(BADPRIO); /* Somebody goofed */
+---
+> /*     if(prio > MAXPRIO || prio < 0) return(BADPRIO); *//* Somebody goofed */ 

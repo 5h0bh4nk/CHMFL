@@ -1,0 +1,2 @@
+110a111
+>     if(prio < 1) return(BADPRIO); /* Mustn't allow 0 */

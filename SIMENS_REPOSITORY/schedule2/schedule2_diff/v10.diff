@@ -1,0 +1,4 @@
+28c28
+<     if(status = put_end(prio, new_process)) return(status); /* Error */
+---
+>     put_end(prio, new_process); /* removed status code */

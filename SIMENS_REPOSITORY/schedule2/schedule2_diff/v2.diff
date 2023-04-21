@@ -1,0 +1,4 @@
+295c295
+<     index = index >= length ? length -1 : index; /* If ratio == 1.0 */
+---
+> /*    index = index >= length ? length -1 : index; MISSING CODE *//* If ratio == 1.0 */

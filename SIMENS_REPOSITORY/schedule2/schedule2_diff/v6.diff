@@ -1,0 +1,4 @@
+77c77
+< 	*prio = *command = -1; *ratio =-1.0;
+---
+> 	*prio = 1; *command = -1; *ratio =1.0;

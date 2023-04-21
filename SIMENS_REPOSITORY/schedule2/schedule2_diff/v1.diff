@@ -1,0 +1,4 @@
+135c135
+<     if(prio < 1 || prio > MAXLOPRIO) return(BADPRIO);
+---
+> /*    if(prio < 1 || prio > MAXLOPRIO) return(BADPRIO); MISSING CODE */
