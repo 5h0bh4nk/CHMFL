@@ -93,7 +93,8 @@ def graph_plot(filename):
         n1+=1
         val+=df.values[i, 1]/df.values[i, 2]
 
-
+    x.append(100)
+    y.append(100)
     df1 = ps.read_csv(f'./others/dstar.csv')
     # df.sort_values(df.columns[1],axis=0,inplace=True)
 
@@ -167,7 +168,7 @@ def compare(opposite):
 
 # difference(problem_folder,problem_name,problem,2)
 # plot("final_output")
-graph_plot(f'./output/final_output_best.csv')
+graph_plot(f'./output/prchmfl_siemens_best.csv')
 
 # compare("dstar")
 # compare("zoltar")

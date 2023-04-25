@@ -16,10 +16,10 @@ locs ={
     'tot_info': 406
 }
 
-root_folder = 'SIMENS_REPOSITORY/'
+root_folder = 'NTS_Repo/'
 
 
-problem_name = 'tot_info'
+problem_name = 'nextdate1'
 problem = problem_name + '/'
 
 problem_folder = root_folder+problem+problem_name
