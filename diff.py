@@ -6,7 +6,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 def plot(filename):
-    df = ps.read_csv(f'./output/final_output.csv')
+    df = ps.read_csv(f'./output/final_output_best.csv')
     df.sort_values(df.columns[1],axis=0,inplace=True)
 
     # cummulative value of x
@@ -26,9 +26,13 @@ def plot(filename):
 
     print(df)
 
+
+
 def difference(problem_folder,problem_name,problem,error):
-    output_file = open(f'./output/final_output.csv','a')
-    writer = csv.DictWriter(output_file,fieldnames=['ratio','x','y'])
+    best_output_file = open(f'./output/final_output_best.csv','a')
+    worst_output_file = open(f'./output/final_output_worst.csv','a')
+    best_writer = csv.DictWriter(best_output_file,fieldnames=['ratio','x','y'])
+    worst_writer = csv.DictWriter(worst_output_file,fieldnames=['ratio','x','y'])
     # writer.writeheader()
     for versions in os.listdir(f"{problem_folder}_mutants"):
         version_no=versions[1:]
@@ -43,26 +47,32 @@ def difference(problem_folder,problem_name,problem,error):
 
         score_file = open(cmh_score_file,'r')
         current_line_no = 1
+        worst_line = 1
+        worst_cmh_score = 0
+        flag = 0
         for line in score_file.readlines():
             if(line[0]=='-' or line[0].isalpha()): 
                 continue
             line_no = int(line.split()[0])
-            if diff_line_no - error <= line_no and line_no <= diff_line_no + error:
-                writer.writerow({'ratio':current_line_no/locs[problem_name],'x':current_line_no,'y':locs[problem_name]})
-                break 
+            cmh_score = float(line.split()[1])               
+            if flag == 0 and diff_line_no - error <= line_no and line_no <= diff_line_no + error:
+                best_writer.writerow({'ratio':current_line_no/locs[problem_name],'x':current_line_no,'y':locs[problem_name]})
+                worst_cmh_score = cmh_score
+                flag = 1
+            if flag==1 and (worst_cmh_score != cmh_score):
+                worst_writer.writerow({'ratio':worst_line/locs[problem_name],'x':worst_line,'y':locs[problem_name]})
+                break
+            worst_line = current_line_no
             current_line_no+=1
         score_file.close()
-    output_file.close()
-    # plot(problem_name)
+    best_output_file.close()
+    worst_output_file.close()
 
 
 
 
-
-def graph_plot():
-    df = ps.read_csv(f'./output/final_output.csv')
-        
-
+def graph_plot(filename):
+    df = ps.read_csv(filename)
     df.sort_values(df.columns[0],axis=0,inplace=True)
     print(df)
     cur_val=df.values[1, 1]
@@ -155,9 +165,9 @@ def compare(opposite):
     plt.show()
 
 
-difference(problem_folder,problem_name,problem,2)
+# difference(problem_folder,problem_name,problem,2)
 # plot("final_output")
-# graph_plot()
+graph_plot(f'./output/final_output_best.csv')
 
 # compare("dstar")
 # compare("zoltar")

@@ -56,14 +56,14 @@ def get_coverage_result(statement_line_in_code, mutant_version):
     a, b, c, d = 0, 0, 0, 0
     # get coverage for passed test cases
     for i in range(len(test_execution_result[mutant_version - 1][1])):
-        gcov_file = problem_folder +'_gcov/v'+ str(mutant_version) + '/' + str(test_execution_result[mutant_version - 1][1][i]) + '/' + problem_name + '.c.gcov'
+        gcov_file = problem_folder +'_gcov/v'+ str(mutant_version) + '/' + str(test_execution_result[mutant_version - 1][1][i])[7:] + '/' + problem_name + '.c.gcov'
         if gcov_reader.check_if_statement_covered(statement_line_in_code, gcov_file):
             c += 1
         else:
             d += 1
     # get coverage for failed test cases
     for i in range(len(test_execution_result[mutant_version - 1][0])):
-        gcov_file = problem_folder +'_gcov/v' + str(mutant_version) + '/' + str(test_execution_result[mutant_version - 1][0][i]) + '/' + problem_name + '.c.gcov'
+        gcov_file = problem_folder +'_gcov/v' + str(mutant_version) + '/' + str(test_execution_result[mutant_version - 1][0][i])[7:] + '/' + problem_name + '.c.gcov'
         if gcov_reader.check_if_statement_covered(statement_line_in_code, gcov_file):
             a += 1
         else:
@@ -94,4 +94,5 @@ def calculate_cmh_score(a, b, c, d):
     numerator = Ncf - (Nf*Nc)/float(N)
     denominator = (Nf*Nc*Nu*Ns)/float(N*N*(N-1))
     cmh_score = numerator/denominator
+    cmh_score = abs(cmh_score)
     return cmh_score

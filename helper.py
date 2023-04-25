@@ -39,8 +39,8 @@ for i in range(1,len(mutant_folders)+1):
         cmh_score.values())[i] for i in range(len(keys))}
     sorted_cmh_score = sorted(cmh_score.items(), key=lambda x: x[1], reverse=True)
     # write cmh score to file
-
-    with open('cmh_output/'+ problem + 'cmh_score'+str(i)+ '.txt', 'w') as file:
+    os.system('mkdir cmh_output_1/'+problem)
+    with open('cmh_output_1/'+ problem + 'cmh_score'+str(i)+ '.txt', 'w') as file:
         file.write("LineNo\t\tCMHVAlue\t\tLine of code\n")
         for key, value in sorted_cmh_score:
             code[key]=code[key].lstrip()
